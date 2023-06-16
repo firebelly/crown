@@ -1,0 +1,179 @@
+/* _config.scss */
+@use "sass:math";
+/* ---------------------------------------------------------------------
+ _config contains project-specific settings
+------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------
+ Breakpoints Map
+------------------------------------------------------------------------ */
+$breakpoints: (
+	"xxs": "0",
+	"xs": "375px",
+	"sm": "576px",
+	"md": "768px", 
+	"lg": "1024px",
+	"xl": "1280px",
+	"xxl": "1440px"
+);
+
+/* ---------------------------------------------------------------------
+ Fonts
+ font url is relative to our compiled stylesheet
+------------------------------------------------------------------------ */
+@mixin getFont($fontname, $dir: null, $filename, $style: null, $weight: 400) {
+
+	@font-face {
+		$downloadable-path: if($dir,'../fonts/#{$dir}/#{$filename}','../fonts/#{$filename}/#{$filename}');
+		$local-path: '#{$filename}';
+
+		font-display: swap;
+		font-family: $fontname;
+		font-style: $style;
+		font-weight: $weight;
+		src: local('#{$local-path}.woff2'), url('#{$downloadable-path}.woff2') format('woff2');
+	}
+}
+
+// Define project fonts
+$primary-name: 'The Future Mono';
+$primary-file: 'the-future-mono-extralight';
+$primary-serif: 'sans-serif'; 
+
+$secondary-name: 'The Future Mono';
+$secondary-file: 'the-future-mono-light';
+$secondary-serif: 'sans-serif';
+
+$tertiary-name: 'The Future';
+$tertiary-file: 'the-future-regular';
+$tertiary-serif: 'sans-serif';
+
+$quaternary-name: 'The Future';
+$quaternary-file: 'the-future-bold';
+$quaternary-file-italic: 'the-future-bold-italic';
+$quaternary-serif: 'sans-serif';
+
+$quinary-name: 'The Future';
+$quinary-file: 'the-future-light';
+$quinary-file-italic: 'the-future-light-italic';
+$quinary-serif: 'sans-serif';
+
+$future-dir: 'the-future';
+
+// The Future Mono Extralight
+@include getFont($primary-name, $future-dir, $primary-file, normal, 200);
+// The Future Mono Light
+@include getFont($secondary-name, $future-dir, $secondary-file, normal, 300);
+// The Future Regular
+@include getFont($tertiary-name, $future-dir, $tertiary-file, normal, 400);
+// The Future Bold
+@include getFont($quaternary-name, $future-dir, $quaternary-file, normal, 700);
+// The Future Bold Italic
+@include getFont($quaternary-name, $future-dir, $quaternary-file-italic, italic, 700);
+// The Future Light
+@include getFont($quinary-name, $future-dir, $quinary-file, normal, 300);
+// The Future Italic
+@include getFont($quinary-name, $future-dir, $quinary-file-italic, italic, 300);
+
+$font-primary: $primary-name, $primary-serif;
+$font-secondary: $secondary-name, $secondary-serif;
+$font-tertiary: $tertiary-name, $tertiary-serif;
+$font-quaternary: $quaternary-name, $quaternary-serif;
+
+// Define Firestarter fonts
+$fs-primary-name: 'Surt Bold';
+$fs-primary-file: 'surt-bold';
+$fs-primary-style: 'bold';
+$fs-primary-serif: 'sans-serif'; // e.g. sans-serif || serif
+
+$fs-secondary-name: 'Surt Light';
+$fs-secondary-file: 'surt-light';
+$fs-secondary-style: 'normal';
+$fs-secondary-serif: 'sans-serif';
+
+$fs-tertiary-name: '';
+$fs-tertiary-file: '';
+$fs-tertiary-style: '';
+$fs-tertiary-serif: '';
+
+$fs-dir: null;
+
+@include getFont($fs-primary-name, $fs-dir, $fs-primary-file, $fs-primary-style);
+@include getFont($fs-secondary-name, $fs-dir, $fs-secondary-file, $fs-secondary-style);
+@include getFont($fs-tertiary-name, $fs-dir, $fs-tertiary-file, $fs-tertiary-style);
+
+$fs-font-primary: $fs-primary-name, $fs-primary-serif;
+$fs-font-secondary: $fs-secondary-name, $fs-secondary-serif;
+$fs-font-tertiary: $fs-tertiary-name, $fs-tertiary-serif;
+
+
+/* ---------------------------------------------------------------------
+ palettes() Map
+ Maps global color families, assigning a "core" or default to each one;
+ Hexidecimals per family should be defined in increments of 10.
+
+ Example:
+
+ 'yellow': (
+	core: #FBF8E9,
+	10: #FFA319,
+	20: #F7EDBA,
+	30: #EC9213
+  )
+------------------------------------------------------------------------ */
+$palettes: (
+
+	'flame': (
+		core: #FF472F
+	),
+	'deep': (
+		core: #1F42EE,
+		10: #0f5fff,
+	),
+	'wheat': (
+		core: #FFDEB8
+	),
+	'gray': (
+		core: #696A6B,
+		10: #C6C7C7
+	),
+	'white': (
+		core: #FFFFFF,
+		10: #F5F5F5
+	),
+	'black': (
+		core: #000000,
+		10: #0F1518,
+		20: #696A6B
+	)
+
+);
+
+/* ---------------------------------------------------------------------
+ getColor()
+ Retrieves color from palettes() map based on hue, and optional tone parameters
+
+ // Props to https://www.ibm.com/design/language/resources for the conditional
+ // which enforces the %10 convention within the palette map
+
+ // Usage:
+ // background: getColor('gray', 10); // #ecf0f4
+ // background: getColor('gray');     // #5E788D
+------------------------------------------------------------------------ */
+@function getColor($color, $tone: 'core') {
+
+	@if type-of($tone) == 'number' {
+
+		@if $tone % 10 == $tone {
+			$tone: $tone * 10;
+		}
+
+	}
+
+	$color-family: map-get($palettes, $color);
+	// Make sure color family exists; default to black
+	$color-hex: if($color-family,map-get($color-family, $tone),#000);
+
+	@return $color-hex;
+
+}

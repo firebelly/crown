@@ -1,0 +1,16 @@
+/* __utils.scss */
+
+/* ---------------------------------------------------------------------
+ Aggregate file that contains foundational utils for the app
+ 1. Double-underscore naming convention to denote this is an aggregate file
+ 2. Order matters
+ 3. Dart Sass (the primary implementation of Sass) replaced the directive @import with @forward.
+ 	@forward makes all mixins, functions and variables available when __utils is loaded via @use rule within other stylesheets
+------------------------------------------------------------------------ */
+@forward 'config';
+@forward 'system';
+@forward 'functions';
+@forward 'mixins';
+@forward 'helpers';
+@forward 'styleguide';
+@forward 'viewport';

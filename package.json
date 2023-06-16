@@ -1,0 +1,36 @@
+{
+  "name": "crown",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "bump": "npm --no-git-tag-version version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firebelly/crown.git"
+  },
+  "keywords": [],
+  "author": "Firebelly Design",
+  "url": "https://firebellydesign.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/firebelly/crown/issues"
+  },
+  "homepage": "https://github.com/firebelly/crown",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.0"
+  },
+  "dependencies": {
+    "@11tyrocks/eleventy-plugin-sass-lightningcss": "^1.0.3",
+    "esbuild": "0.18.3",
+    "sass": "^1.63.4"
+  },
+  "browserslist": [
+    "> 0.2%",
+    "not dead"
+  ]
+}

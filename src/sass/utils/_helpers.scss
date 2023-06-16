@@ -1,0 +1,187 @@
+/* _helpers.scss */
+
+/* ---------------------------------------------------------------------
+   _helpers contains a collection of commonly used mixins that don't require args.
+------------------------------------------------------------------------ */
+$vendors: -webkit-,-moz-,-ms-,-ms-input-,-o-;
+
+/* ---------------------------------------------------------------------
+	Alignment
+------------------------------------------------------------------------ */
+@mixin verticallyCenter {
+	position: relative;
+	top: 50%;
+
+	@each $vendor in $vendors {
+       #{$vendor}transform: translateY(-50%);
+    }
+	transform: translateY(-50%);
+}
+
+@mixin horizontallyCenter {
+	position: relative;
+	left: 50%;
+
+	@each $vendor in $vendors {
+       #{$vendor}transform: translateX(-50%);
+    }
+		transform: translateX(-50%);
+}
+
+@mixin centerEverything {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	@each $vendor in $vendors {
+       #{$vendor}transform: translate(-50%,-50%);
+    }
+	transform: translate(-50%,-50%);
+}
+
+/* ---------------------------------------------------------------------
+ 	Visibility
+------------------------------------------------------------------------ */
+// Altogether Hidden Content: unavailable to both screenreaders and browsers
+@mixin totallyHide {
+	display: none;
+	visibility: hidden;
+}
+
+// Visually Hidden Content: available to screenreaders only
+@mixin visuallyHide {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+		// Allow keyboard focusability
+		// h5bp.com/p
+		&.focusable:active,
+		&.focusable:focus {
+			clip: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			position: static;
+			width: auto;
+		}
+}
+
+@mixin totallyShow {
+	display: block;
+	visibility: visible;
+}
+
+@mixin visuallyShow {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	width: auto;
+	overflow: visible;
+	position: static;
+}
+
+@mixin imageReplace {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	*text-indent: -9999px; // old IE
+
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 100%;
+	}
+
+}
+
+/* ---------------------------------------------------------------------
+	Text
+------------------------------------------------------------------------ */
+// Use this on the parent of a translated child to prevent text blurriness
+@mixin deblurChild {
+    @each $vendor in $vendors {
+       #{$vendor}transform-style: preserve-3d;
+    }
+    transform-style: preserve-3d;
+}
+
+@mixin noSelect {
+	@each $vendor in $vendors {
+       #{$vendor}user-select: none;
+    }
+    -webkit-touch-callout: none;
+	user-select: none;
+}
+
+@mixin plainLink {
+	&:link,
+	&:hover,
+	&:visited,
+	&:active {
+		text-decoration: none;
+	}
+}
+
+/* ---------------------------------------------------------------------
+	Icons
+------------------------------------------------------------------------ */
+@mixin fontAwesomeIcon {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ---------------------------------------------------------------------
+	Forms
+------------------------------------------------------------------------ */
+@mixin resetButton {
+	background: none;
+    border: none;
+	border-radius: none;
+	font-size: inherit;
+    outline: none;
+	margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+@mixin resetNativeButton {
+	border: none;
+	-webkit-appearance: none;
+}
+
+/* ---------------------------------------------------------------------
+	Flow
+------------------------------------------------------------------------ */
+@mixin resetFlow() {
+	bottom: auto;
+	left: auto;
+	position: relative;
+	right: auto;
+	top: auto;
+}
+
+@mixin clearFix {
+	&:before,
+	&:after {
+	  content: " ";
+	  display: table;
+	}
+
+	&:after {
+	  clear: both;
+	}
+
+	*zoom: 1;
+}

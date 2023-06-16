@@ -1,0 +1,129 @@
+/* project.scss */
+
+/* ---------------------------------------------------------------------
+ Project-specific generic element declarations
+------------------------------------------------------------------------ */
+@use "utils/_utils" as *;
+@use "sass:math";
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%; // Reset base font size for easier em & rem calculations: 1em = 10px
+	-webkit-overflow-scrolling: touch;
+	min-height: -webkit-fill-available;
+	scrollbar-gutter: stable; // prevent jump
+	position: relative; // logo buddy
+	overflow-x: hidden; // logo buddy
+
+	@media ( prefers-reduced-motion: no-preference ) {
+		scroll-behavior: smooth;
+	}
+
+}
+
+body {
+	$max: map-get($breakpoints,'xl');
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: getColor('black',10);
+	color: getColor('white',10);
+	font-family: $font-tertiary;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-overflow-scrolling: touch;	
+
+	@include breakpoint(md) {
+		font-size: 200%;
+	}
+
+	@include breakpoint(lg) {
+		font-size: 150%;
+	}
+
+	@include breakpoint(xl) {
+	}
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: normal;
+}
+
+ol, ul {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: getColor('white',10);
+	transition: all .25s ease-in-out;
+
+	&:hover {
+		color: getColor('deep');
+	}
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: 700;
+}
+
+picture,
+img {
+	display: block;
+	max-width: 100%;
+}
+
+.viewport {
+	&._is-debug::before {
+		font-size: 1.1em;
+	}
+}
+
+.svg-defs {
+	&._is-hidden {
+		display: none;
+	}
+}
+
+/* ---------------------------------------------------------------------
+  Accessibility Skip
+------------------------------------------------------------------------ */
+.skip-link {
+	border: 1px solid getColor('black');
+	border-top: none;
+	display: block;
+	left: 50%;
+	padding: 10px;
+	position: absolute;
+	z-index: 100;
+	transform: translateY(-100%);
+	transition: transform 0.3s;
+	background: getColor('white');
+	color: getColor('black');
+	font-weight: 700;
+
+	@include breakpoint(sm) {
+		font: normal 1.8em/133% $font-secondary;
+	}
+}
+  
+.skip-link:focus {
+	transform: translateY(0%);
+}
+
+.skip-link:focus-within {
+	transform: translateY(0%);
+}

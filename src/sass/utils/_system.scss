@@ -1,0 +1,67 @@
+/* _system.scss */
+
+/* ---------------------------------------------------------------------
+ _system contains project-agnostic functional tools for the ecosystem
+ In theory, there should be no need to edit this functional _system.scss file
+------------------------------------------------------------------------ */
+// Import project-specific settings
+@use "config" as *;
+
+/* ---------------------------------------------------------------------
+ System Variables
+------------------------------------------------------------------------ */
+// Initialize empty 'placeholders' list
+$placeholders: ();
+
+// Breakpoint vars
+$breakpoint-default: root;
+$breakpoint-current: $breakpoint-default;
+
+// Initialize empty 'modules' list
+$modules: () !default;
+
+// Path for @font-face fonts - no trailing slash needed
+$fontpath: '';
+
+/* ---------------------------------------------------------------------
+Breakpoint
+// Easy and consistent way to apply media queries across the app
+
+See _config.scss for breakpoint map
+Current $breakpoint options: xs | sm | md | lg | xl
+Usage: @include breakpoint(md);
+
+// Usage as a wrapper:
+@include breakpoint(md) {
+  	.selector {
+    	@include visuallyShow;
+   	}
+}
+
+// Usage in nested declarations:
+.selector {
+	@include breakpoint(xs) {
+		@include visuallyHide;
+	}
+}
+------------------------------------------------------------------------ */
+@mixin breakpoint($breakpoint) {
+    // If 'breakpoint' exists
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get width from keyword 'breakpoint'
+        $value: map-get($breakpoints, $breakpoint);
+        // Update '$breakpoint-current'
+        $breakpoint-current: $breakpoint !global;
+        // Enable content dump
+        @media (min-width: $value) {
+            @content;
+        }
+        // Reset '$breakpoint-current' to '$breakpoint-default' (root)
+        $breakpoint-current: $breakpoint-default !global;
+    }
+    // If '$breakpoint' doesn't exist
+    // Send out a warning and do zilch
+    @else {
+        @warn "Invalid breakpoint `#{$breakpoint}`.";
+    }
+}
