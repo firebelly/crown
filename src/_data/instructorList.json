@@ -1,0 +1,82 @@
+[
+    {
+        "program_id": 651,
+        "personnel_title": "NULL",
+        "personnel_first_name": "Kristen",
+        "personnel_last_name": "Huber",
+        "personnel_phone": "NULL",
+        "personnel_email": "NULL",
+        "personnel_notes": "NULL",
+        "role_description": "No Role"
+    },
+    {
+        "program_id": 651,
+        "personnel_title": "NULL",
+        "personnel_first_name": "Rich",
+        "personnel_last_name": "Jentzen",
+        "personnel_phone": "312-926-6331",
+        "personnel_email": "rjentzen@nmh.org",
+        "personnel_notes": "NULL",
+        "role_description": "Field Instructor / Coordinator"
+    },
+    {
+        "program_id": 651,
+        "personnel_title": "NULL",
+        "personnel_first_name": "Phyllis",
+        "personnel_last_name": "Chong",
+        "personnel_phone": "NULL",
+        "personnel_email": "NULL",
+        "personnel_notes": "NULL",
+        "role_description": "No Role"
+    },
+    {
+        "program_id": 21,
+        "personnel_title": "NULL",
+        "personnel_first_name": "Mary",
+        "personnel_last_name": "Matthews",
+        "personnel_phone": "773-880-4321",
+        "personnel_email": "mdmathews@luriechildrens.org",
+        "personnel_notes": "NULL",
+        "role_description": "No Role"
+    },
+    {
+        "program_id": 21,
+        "personnel_title": "Heart Transplant Social Worker",
+        "personnel_first_name": "Sahar",
+        "personnel_last_name": "Shalash",
+        "personnel_phone": "312-227-4332",
+        "personnel_email": "sshalash@luriechildrens.org",
+        "personnel_notes": "NULL",
+        "role_description": "Field Instructor"
+    },
+    {
+        "program_id": 21,
+        "personnel_title": "NULL",
+        "personnel_first_name": "Akina",
+        "personnel_last_name": "Takahashi",
+        "personnel_phone": "NULL",
+        "personnel_email": "ATakahashi@luriechildrens.org",
+        "personnel_notes": "NULL",
+        "role_description": "Task Supervisor"
+    },
+    {
+        "program_id": 21,
+        "personnel_title": "NULL",
+        "personnel_first_name": "Laura",
+        "personnel_last_name": "Cambruzzi",
+        "personnel_phone": "312.227.6246",
+        "personnel_email": "lcambruzzi@luriechildrens.org",
+        "personnel_notes": "NULL",
+        "role_description": "Field Instructor"
+    },
+    {
+        "program_id": 21,
+        "personnel_title": "NULL",
+        "personnel_first_name": "Paloma",
+        "personnel_last_name": "Peterson",
+        "personnel_phone": "NULL",
+        "personnel_email": "papeterson@luriechildrens.org",
+        "personnel_notes": "NULL",
+        "role_description": "Task Supervisor"
+    }
+]

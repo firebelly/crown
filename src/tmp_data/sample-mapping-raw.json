@@ -1,0 +1,1358 @@
+{
+    "Programs": [
+      {
+        "Field": "Program_ID",
+        "Type": "Numeric(18, 0)",
+        "Table": "Programs",
+        "Access - Programs Screen": "V",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "V",
+        "New Formcoming Field Database Search": "X",
+        "Wizard Page": "N/A",
+        "Notes": "Identity Field - Auto assigned and uneditable",
+        "__EMPTY": "X",
+        "__EMPTY_1": "Not available"
+      },
+      {
+        "Field": "Program_Name",
+        "Type": "nvarchar(255)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": "N/A",
+        "__EMPTY": "V",
+        "__EMPTY_1": "Viewable"
+      },
+      {
+        "Field": "Program_Addr1",
+        "Type": "nvarchar(255)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "Required (after Agency enters web status = ready?)": "x",
+        "__EMPTY": "E",
+        "__EMPTY_1": "Editable by Staff"
+      },
+      {
+        "Field": "Program_Addr2",
+        "Type": "nvarchar(255)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "__EMPTY": "A",
+        "__EMPTY_1": "Editable by Staff and Agency "
+      },
+      {
+        "Field": "Program_City",
+        "Type": "nvarchar(50)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "Required (after Agency enters web status = ready?)": "x"
+      },
+      {
+        "Field": "Program_State",
+        "Type": "char(2)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "Required (after Agency enters web status = ready?)": "x"
+      },
+      {
+        "Field": "Program_Zip",
+        "Type": "nvarchar(5)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "Required (after Agency enters web status = ready?)": "x"
+      },
+      {
+        "Field": "Program_Phone",
+        "Type": "nvarchar(20)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "Program_Fax",
+        "Type": "nvarchar(20)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Wizard Page": "N/A",
+        "Notes": "Removed?"
+      },
+      {
+        "Field": "Program_Email",
+        "Type": "nvarchar(50)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "Notes": "New"
+      },
+      {
+        "Field": "Program_Website",
+        "Type": "nvarchar(75)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "Student Attendance (in person, remote, hybrid)",
+        "Type": "nchar(10)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "Required (after Agency enters web status = ready?)": "x",
+        "Notes": "New"
+      },
+      {
+        "Field": "Program_Agency_Description",
+        "Type": "varchar(255)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "V",
+        "Notes": "File "
+      },
+      {
+        "Field": "Description_updated",
+        "Type": "datetime",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Program_Status_ID",
+        "Type": "numeric(18, 0)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Active, Inactive, Inactive Year, Etc"
+      },
+      {
+        "Field": "Program_Status_Date",
+        "Type": "datetime",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "V",
+        "New Formcoming Field Database Search": "V"
+      },
+      {
+        "Field": "Primary_Service_Code ",
+        "Type": "int",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Discussion"
+      },
+      {
+        "Field": "Info_Update_Request_Sent ",
+        "Type": "smalldatetime",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Not used"
+      },
+      {
+        "Field": "Program_Stipend ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 5,
+        "Required (after Agency enters web status = ready?)": "x",
+        "Notes": "Required since it is a radio"
+      },
+      {
+        "Field": "Program_Description",
+        "Type": "text",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Being used as notes"
+      },
+      {
+        "Field": "Organization_ID ",
+        "Type": "numeric(18, 0)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Not used"
+      },
+      {
+        "Field": "County ",
+        "Type": "numeric(18, 0)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V"
+      },
+      {
+        "Field": "City_Location ",
+        "Type": "numeric(18, 0)",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V"
+      },
+      {
+        "Field": "Num_Students ",
+        "Type": "int",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V"
+      },
+      {
+        "Field": "Num_Students_Assigned ",
+        "Type": "int",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "This is populated but maybe programatically?"
+      },
+      {
+        "Field": "STA_MA1 ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "STA_MA2 ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "STA_EEP1 ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "STA_EEP2 ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "STA_EEP_CL ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "STA_EEP_SA ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "STA_SUM ",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1
+      },
+      {
+        "Field": "STA_SSL",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 1,
+        "Notes": "New"
+      },
+      {
+        "Field": "Mission",
+        "Type": "nvarchar(2000)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 3,
+        "Notes": "New"
+      },
+      {
+        "Field": "Initiatives",
+        "Type": "nvarchar(2000)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 3,
+        "Notes": "New"
+      },
+      {
+        "Field": "individual_supervision",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 5,
+        "Required (after Agency enters web status = ready?)": "x",
+        "Notes": "New - required since it is a radio"
+      },
+      {
+        "Field": "group_supervision",
+        "Type": "bit",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 5,
+        "Required (after Agency enters web status = ready?)": "x",
+        "Notes": "New - required since it is a radio"
+      },
+      {
+        "Field": "AreaSupervision",
+        "Type": "nvarchar(2000)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 5,
+        "Notes": "New"
+      },
+      {
+        "Field": "AreaAdditional",
+        "Type": "nvarchar(2000)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 5,
+        "Notes": "New"
+      },
+      {
+        "Field": "TrainingOppo",
+        "Type": "nvarchar(2000)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6,
+        "Notes": "New"
+      },
+      {
+        "Field": "AffiliationAgreementDate ",
+        "Type": "smalldatetime",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "AffiliationAgreementExpires ",
+        "Type": "smalldatetime",
+        "Table": "Programs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Geo_Neighborhood ",
+        "Type": "nvarchar(50)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Geo_LAT ",
+        "Type": "nvarchar(50)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Geo_LNG ",
+        "Type": "nvarchar(50)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Geo_County ",
+        "Type": "nvarchar(50)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Geo_Updated ",
+        "Type": "smalldatetime",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Geo_FormedAddress ",
+        "Type": "nvarchar(200)",
+        "Table": "Programs",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "program_id",
+        "Type": "numeric(18, 0)",
+        "Table": "program_prerequisites",
+        "Access - Programs Screen": "V",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "V",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "prerequisites_id",
+        "Type": "numeric(18, 0)",
+        "Table": "program_prerquisites",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Displayed as Description (prerequisite table below)"
+      },
+      {
+        "Field": "prereqruisites_id",
+        "Type": "numeric(18, 0)",
+        "Table": "prerequisites"
+      },
+      {
+        "Field": "description",
+        "Type": "nvarchar(50)",
+        "Table": "prerequisites"
+      },
+      {
+        "Field": "SSAPays",
+        "Type": "bit",
+        "Table": "prerequisites"
+      },
+      {
+        "Field": "QField",
+        "Type": "nvarchar(50)",
+        "Table": "prerequisites",
+        "Notes": "Not used"
+      },
+      {
+        "Field": "Program_ID",
+        "Type": "numeric(18, 0)",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "V",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "V",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "General_Immunizations",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "TB_Screen",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Hepatitis_B",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Drug_Screen",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "HIV_Testing",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Criminal_Check",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Legal_Background_Check",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "DCFS_Screening",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "DV_Rape_training",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Liability_Insurance",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Car_needed",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Spanish",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Language_requirement",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Universal_requirement",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Pre_Orientation",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Basic_Skills",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Early_Start",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Fingerprinting",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "CPR",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Hepatitis_B_Test",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Evening_Hours",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "ISBE_Certification",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Physical_Exam",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Female_pref",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Male_pref",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Prior_experience",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Mandarin_and_Cantanese",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Resume",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Reference",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Cover_Letter",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "FBI_Check",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Sex_Offender_Check",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Writing_Sample",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "App_Deadline",
+        "Type": "bit",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "Languages",
+        "Type": "nvarchar(200)",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "OtherInfo",
+        "Type": "nvarchar(200)",
+        "Table": "Program_Prereqs",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 6
+      },
+      {
+        "Field": "program_id",
+        "Type": "numeric(18, 0)",
+        "Table": "program_personnel",
+        "Access - Programs Screen": "V",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "V",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_id",
+        "Type": "numeric(18, 0)",
+        "Table": "program_personnel",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Displayed as First and Last Name (personnel table below)"
+      },
+      {
+        "Field": "role_id",
+        "Type": "numeric(18, 0)",
+        "Table": "program_personnel",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Displayed as role_description (roles tabled below)"
+      },
+      {
+        "Field": "personnel_id",
+        "Type": "numeric(18, 0)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_title",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "?",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_first_name",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "?",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 2,
+        "Notes": "Top 1 shown by roles weborder"
+      },
+      {
+        "Field": "personnel_last_name",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "?",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 2,
+        "Notes": "Roles weborder: 1 - Coordinator, 2 - Field Instructor/Coordinator, 3 - Field Instructor, 4 - No Role, 5 - Field Instructor/Coordinator, 6 - Coordinator/Task Supervisor"
+      },
+      {
+        "Field": "personnel_phone",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 2
+      },
+      {
+        "Field": "personnel_email",
+        "Type": "nvarchar(75)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "?",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_room",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_orientation",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_meet_with_liaison",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_workshop",
+        "Type": "nvarchar(50)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_luncheon",
+        "Type": "bit",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_panel_pres",
+        "Type": "bit",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_alum",
+        "Type": "bit",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_alum_gradyear",
+        "Type": "nvarchar(4)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_inv",
+        "Type": "bit",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_inv_date",
+        "Type": "smalldatetime",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "personnel_notes",
+        "Type": "nvarchar(255)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "user_num",
+        "Type": "numeric(18, 0)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "DietaryRequirements",
+        "Type": "nvarchar(200)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "CEULicense",
+        "Type": "nvarchar(20)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "PIN",
+        "Type": "nvarchar(100)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "PIN_SetStamp",
+        "Type": "datetime",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Entity_ID",
+        "Type": "nvarchar(20)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "PWHASH",
+        "Type": "nvarchar(250)",
+        "Table": "Personnel",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "role_id",
+        "Type": "numeric(18, 0)",
+        "Table": "roles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "role_description",
+        "Type": "nvarchar(50)",
+        "Table": "roles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "V",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "?",
+        "New Formcoming Field Database Search": "V"
+      },
+      {
+        "Field": "weborder",
+        "Type": "numeric(18, 0)",
+        "Table": "roles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "program_id",
+        "Type": "numeric(18, 0)",
+        "Table": "Program_specialty",
+        "Access - Programs Screen": "V",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "specialty_id",
+        "Type": "numeric(18, 0)",
+        "Table": "Program_specialty",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Displayed as Description (specialty table below)"
+      },
+      {
+        "Field": "specialty_id",
+        "Type": "numeric(18, 0)",
+        "Table": "Specialty",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "description",
+        "Type": "nvarchar(50)",
+        "Table": "Specialty",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "program_id",
+        "Type": "numeric(18, 0)",
+        "Table": "program_services",
+        "Access - Programs Screen": "V",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "V",
+        "New Formcoming Field Database Search": "X",
+        "Wizard Page": "3, 4"
+      },
+      {
+        "Field": "service_id",
+        "Type": "numeric(18, 0)",
+        "Table": "program_services",
+        "Access - Programs Screen": "E",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X",
+        "Notes": "Displayed as Description (services table below)"
+      },
+      {
+        "Field": "services_id",
+        "Type": "numeric(18, 0)",
+        "Table": "services",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "service_code",
+        "Type": "varchar(20)",
+        "Table": "services",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Description",
+        "Type": "varchar(50)",
+        "Table": "services",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "KeywordID",
+        "Type": "int",
+        "Table": "tblProgramKeyword",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "ProgramID",
+        "Type": "numeric(18, 0)",
+        "Table": "tblProgramKeyword",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "Keyword",
+        "Type": "nvarchar(50)",
+        "Table": "tblProgramKeyword",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 4
+      },
+      {
+        "Field": "AgencyFileID",
+        "Type": "int",
+        "Table": "tblAgencyFiles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "ProgramID",
+        "Type": "numeric(18, 0)",
+        "Table": "tblAgencyFiles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "AgencyFileName",
+        "Type": "nvarchar(100)",
+        "Table": "tblAgencyFiles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "A",
+        "New Formcoming Field Database Search": "V",
+        "Wizard Page": 5,
+        "Notes": "Editable/Viewable as file upload/download corresponding to the role"
+      },
+      {
+        "Field": "AgencyClientFileName",
+        "Type": "nvarchar(100)",
+        "Table": "tblAgencyFiles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "AgencyFileSize",
+        "Type": "float",
+        "Table": "tblAgencyFiles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "Field": "AgencyFileExtension",
+        "Type": "char(10)",
+        "Table": "tblAgencyFiles",
+        "Access - Programs Screen": "X",
+        "Current Field Database Search (by students)": "X",
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      },
+      {
+        "New Agency Tool (usable by field staff and field agency staff) aka Wizard": "X",
+        "New Formcoming Field Database Search": "X"
+      }
+    ]
+  }

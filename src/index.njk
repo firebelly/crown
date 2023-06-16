@@ -1,0 +1,28 @@
+---
+title: Crown Family School
+layout: "base.njk"
+--- 
+
+My homepage content!
+
+<h2>Student Types:</h2>
+<ul>
+{% for student in studentList %}
+    <li>{{ student.slug }}, {{ student.label }}</li>
+{% endfor %}
+</ul>
+
+<h2>Organizations:</h2>
+<ul>
+{% for org in organizationList %}
+    <li>{{ org.program_name }}</li>
+{% endfor %}
+</ul>
+
+<h2>Instructors:</h2>
+<ul>
+{% for instructor in instructorList %}
+    <li>{{ instructor.personnel_first_name }}</li>
+{% endfor %}
+</ul>
+
