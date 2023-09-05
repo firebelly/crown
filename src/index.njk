@@ -2,27 +2,60 @@
 title: Crown Family School
 layout: "base.njk"
 --- 
+<form 
+    action="" 
+    method="post" 
+    class="searchForm"
+    data-search-filters="form">
+    
+    <div class="searchForm-wrap searchForm-wrap--primary">
+        {% include 'fieldsets/organizations.njk' %}
+    </div>
 
-My homepage content!
+    <hr class="searchForm-rule" />
 
-<h2>Student Types:</h2>
-<ul>
-{% for student in studentList %}
-    <li>{{ student.slug }}, {{ student.label }}</li>
-{% endfor %}
-</ul>
+    <div class="searchForm-fieldset">
+        <h3 class="searchForm-legend">Filter Results By Criteria</h3>
+        <p class="searchForm-instructions">Select as few or as many criteria to refine search results.</p>
 
-<h2>Organizations:</h2>
-<ul>
-{% for org in organizationList %}
-    <li>{{ org.program_name }}</li>
-{% endfor %}
-</ul>
+        <div class="searchForm-wrap searchForm-wrap--secondary">
+            {% include 'fieldsets/students.njk' %}
+            {% include 'fieldsets/instructors.njk' %}
+        </div>
+    
+    </div>
 
-<h2>Instructors:</h2>
-<ul>
-{% for instructor in instructorList %}
-    <li>{{ instructor.personnel_first_name }}</li>
-{% endfor %}
-</ul>
+    <hr class="searchForm-rule searchForm-rule--alt" />
 
+    <div class="searchForm-criteria">
+        <p class="searchForm-criteria-title">You are searching by:</p>
+        <ul class="searchForm-criteria-wrap" data-search-filters="criteria">
+            <li class="searchForm-criteria-li" data-search-criteria="all">All Organizations</li>
+        </ul>
+    </div>
+
+    <div class="searchForm-buttons">
+        <button
+            class="searchForm-submit"
+            data-search-filters="submit" 
+            type="submit">
+            <span class="searchForm-submit-label">Show Results</span>
+            {% include 'src/assets/svgs/icon-arrow-down.svg' %}
+        </button>
+        <button
+            class="searchForm-submit searchForm-submit--clear"
+            data-search-filters="clear" 
+            type="submit">
+            <span class="searchForm-submit-label">Clear Filters</span>
+        </button>
+    </div>
+
+</form>
+
+{# _is-inactive #}
+<div 
+    id="searchResults" 
+    class="searchResults"
+    data-search-filters="results">
+
+</div>
