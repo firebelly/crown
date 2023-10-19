@@ -1,0 +1,81 @@
+{
+    "info": {
+        "program_id": "Program ID",
+        "program_name": "Program Name",
+        "mission": "Mission",
+        "Initiatives": "Initiatives",
+        "program_status_date": "Status",
+        "program_stipend": "Stipend",
+        "App_Deadline": "Application Deadline"
+    }, 
+    "contact": {
+        "program_phone": "Phone",
+        "program_email": "Email",
+        "program_website": "Website"
+    },
+    "location": {
+        "program_addr1": "Address 1",
+        "program_addr2": "Address 2",
+        "program_city": "City",
+        "program_state": "State",
+        "program_zip": "Zip",
+        "county": "County Code",
+        "city_location": "Region"
+    },
+    "students": {
+        "sta_ma1": "First Year MA",
+        "sta_ma2": "Second Year MA",
+        "sta_eep1": "Core Evening MA",
+        "sta_eep2": "Core Evening MA (2)",
+        "STA_EEP_CL": "Clinical Evening MA",
+        "STA_EEP_SA": "Social Evening MA",
+        "sta_sum": "Summer Block MA",
+        "sta_ssl": "Social Service"
+    },
+    "instruction": {
+        "individual_supervision": "Individual Supervision",
+        "group_supervision": "Group Supervision",
+        "AreaSupervision": "Supervision Description",
+        "AreaAdditional": "Additional Information",
+        "TrainingOppo": "Training Description",
+        "num_students": "Student Count",
+        "StudentAttendanceMethod": "Attendance"
+    },
+    "prerequisites": {
+        "General_Immunizations": "",
+        "TB_Screen": "",
+        "Hepatitis_B_vaccination": "",
+        "Hepatitis_B_Test": "",
+        "Drug_Screen": "",
+        "HIV_Testing": "",
+        "Criminal_Check": "",
+        "Legal_Background_Check": "",
+        "DCFS_Screening": "",
+        "DV_Rape_training": "",
+        "Liability_Insurance": "",
+        "Car_needed": "",
+        "Spanish": "",
+        "Language_requirement": "",
+        "Universal_Precautions": "",
+        "Pre_Orientation": "",
+        "Basic_Skills": "",
+        "Early_Start": "",
+        "Fingerprinting": "",
+        "CPR": "",
+        "Evening_Hours": "",
+        "ISBE_Certification": "",
+        "Physical_Exam": "",
+        "Female_pref": "",
+        "Male_pref": "",
+        "Prior_experience": "",
+        "Mandarin_and_Cantanese": "",
+        "Resume": "",
+        "Reference": "",
+        "Cover_Letter": "",
+        "FBI_Check": "",
+        "Sex_Offender_Check": "", 
+        "Languages": "",
+        "Writing_Sample": "",
+        "OtherInfo": ""
+    }
+}

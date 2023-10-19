@@ -1,7 +1,10 @@
 ---
 title: Crown Family School
 layout: "base.njk"
+data: organizationList, dataTranslator
 --- 
+{% import "./_includes/macros/card.njk" as card %}
+
 <form 
     action="" 
     method="post" 
@@ -58,4 +61,11 @@ layout: "base.njk"
     class="searchResults"
     data-search-filters="results">
 
+    <h2 class="searchResults-count">Showing 11 Results</h2>
+
+    <div class="searchResults-container">
+        {% for org in organizationList %}
+            {{ card.excerpt(org,dataTranslator) }}
+        {% endfor %}
+    </div>
 </div>

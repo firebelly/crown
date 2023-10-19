@@ -1,0 +1,320 @@
+/* _dropdown-menu.scss */
+@use "../utils/_utils" as *;
+@use "sass:string";
+@use "sass:math";
+
+/* ---------------------------------------------------------------------
+  Dropdown Menu:
+	
+  Dropdown is activated on item hover and
+  on input click to accommodate devices
+------------------------------------------------------------------------ */
+@mixin dropdownMenu($selector,$colors...) {
+
+	// Shorthand els
+	$item: #{$selector}-item--dropdown;
+	$trigger: #{$selector}-trigger--dropdown;
+	$input: #{$selector}-input;
+	// Dropdown vars
+	$dropdown-width: 500px;
+	$pointer-height: 12px;
+	$pointer-width: 18px;
+
+	#{$selector} {
+		position: relative;
+
+		@include breakpoint(lg) {
+			display: inline-flex;
+
+			@media (hover: hover) {
+				&:hover {
+					cursor: pointer;	
+				}
+			}
+		}
+
+		&-input {
+			display: block;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			max-height: 54px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			opacity: 0;
+			z-index: 2;
+
+			@media (hover: hover) {
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+		}
+
+		&-trigger {
+			$transition: 0.3s background, 0.3s color;
+			display: flex;
+			align-items: center;
+			padding: 1em;
+			color: $color-primary;
+			line-height: 2;
+			transition: $transition;
+
+			#{$selector}--pointer & {
+				border: 2px solid $color-primary;
+			}
+
+			#{$selector}--block & {
+				border: 1px solid $color-primary;
+			}
+
+			@media (hover: hover) {
+
+				#{$selector}:hover & {
+					background: $color-primary;
+					color: $color-secondary;
+					transition: $transition;
+
+					svg {
+						fill: $color-secondary;
+					}
+
+				}
+
+			}
+
+			@include breakpoint(lg) {
+
+				#{$selector}--pointer #{$input}:checked ~ & {
+					@include dropdownPointerTrigger($dropdown-width,$pointer-width);
+					border-top: none;
+					border-right: none;
+					border-left: none;
+				}
+
+				#{$selector}--block #{$input}:checked ~ & {
+					@include dropdownBlockTrigger($dropdown-width);
+
+					svg {
+						transform: rotate(180deg);
+					}
+				}
+
+			}
+
+		}
+
+		&-label {
+			max-width: calc($dropdown-width - 200px);
+			width: auto;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			@include getType('input-std');
+		}
+
+		&-icon {
+			height: 18px;
+			width: 18px;
+			margin-left: 1.2em;
+			fill: $color-primary;
+			transition: transform 0.1s ease-in-out;		
+
+			#{$input}:checked ~ #{$trigger} & {
+				@include dropdownIcon($selector);
+			}
+
+			@media (hover: hover) {
+				#{$item}:hover & {
+					fill: $color-secondary;
+				}
+			}
+
+		}
+
+		&-dropdown {
+			@include visuallyHide;
+
+			// Active State
+			//////////////////////////
+			#{$input}:checked ~ &--pointer {
+				@include dropdownPointerList($dropdown-width,$pointer-width,$pointer-height);
+			}
+
+			#{$input}:checked ~ &--block {
+				@include dropdownBlockList($dropdown-width);
+			}
+
+			&-li {
+				display: block;
+				padding: 1em 1.5em;
+				font-size: 1rem;
+				position: relative;
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+
+				@media (hover: hover) {
+					&:hover {
+						background: $color-primary;
+					}
+				}
+
+			}
+
+			&-label {
+				color: $color-primary;
+				// todo
+				font-size: 1.5em;
+				line-height: 1.5;
+
+				@media (hover: hover) {
+					#{$selector}-dropdown-li:hover & {
+						color: $color-secondary;
+					}
+				}
+			}
+
+			&-input {
+				opacity: 0;
+				height: 100%;
+				width: 100%;
+				position: absolute;
+
+				@media (hover: hover) {
+					&:hover {
+						cursor: pointer;
+					}
+				}
+			}
+
+			&-arrow {
+				height: 18px;
+				width: 18px;
+				fill: $color-primary;
+				display: inline-block;
+				position: relative;
+				top: 0.2em; // lil nudge
+
+				@media (hover: hover) {
+					#{$selector}-dropdown-link:hover & {
+						fill:$color-secondary;
+					}
+				}
+
+			}
+
+		}
+	}
+}
+
+// Dropdown Trigger
+@mixin dropdownPointerTrigger($dropdown-width,$pointer-width) {
+	border-color: $color-primary;
+	background: none;
+	color: $color-primary;
+	transition: border-color 0.1s ease-in-out;
+	// Hover helper:
+	// Creates mask that sustains dropdown on hover
+	&::before {
+		margin-left: math.div($dropdown-width,2) * -1;
+		content: "";
+		position: absolute;
+		height: $pointer-width;
+		width: $dropdown-width;
+		top: 100%;
+		left: 50%;
+	}
+}
+
+@mixin dropdownBlockTrigger($dropdown-width) {
+	border: 1px solid $color-primary;
+	border-bottom: none;
+	position: relative;
+	z-index: 4;
+	background: $color-secondary;
+	color: $color-primary;
+	transition: border-color 0.1s ease-in-out;
+	// Hover helper:
+	// Creates mask that sustains dropdown on hover
+	&::before {
+		margin-left: math.div($dropdown-width,2) * -1;
+		content: "";
+		position: absolute;
+		width: $dropdown-width;
+		top: 100%;
+		left: 0;
+	}
+}
+
+// Dropdown List
+@mixin dropdownPointerList($dropdown-width,$pointer-width,$pointer-height) {
+	@include visuallyShow;
+	padding: 1.5em 0 0 0.4em;
+
+	@include breakpoint(lg) {
+		margin-left: math.div($dropdown-width,2) * -1;
+		margin-top: $pointer-height;
+		padding: 1.5em 0.6em 1.5em 1.2em;
+		width: $dropdown-width;
+		position: absolute;
+		z-index: 2;
+		left: 50%;
+		top: calc(100% + 4px); // includes border height
+		background: $color-secondary;
+		filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+		text-align: center;
+
+		// Create the pointer
+		&::before {
+			content: "";
+			position: absolute;
+			margin-left: math.div($pointer-width,2) * -1;
+			left: 50%;
+			top: $pointer-height * -1;
+			width: 0;
+			height: 0;
+			border-left: $pointer-height solid transparent;
+			border-right: $pointer-height solid transparent;
+			border-bottom: $pointer-width solid getColor('white');
+		}
+	}
+}
+
+@mixin dropdownBlockList($dropdown-width) {
+	@include visuallyShow;
+	padding: 1.5em 0 0 0;
+	border: 1px solid $color-primary;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	position: absolute;
+	z-index: 3;
+	left: 0;
+	top: calc(100% - 1px); 
+
+	@include breakpoint(lg) {
+		padding: 1.5em 0;
+		width: $dropdown-width;
+		background: $color-secondary;
+		text-align: left;
+	}
+}
+
+
+// Dropdown Icon
+@mixin dropdownIcon($selector) {
+	transform: rotate(180deg);
+	transition: transform 0.1s ease-in-out;
+
+	@media (hover: hover) {
+		#{$selector}-item:hover & {
+			fill: $color-primary;
+		}
+	}
+}
+

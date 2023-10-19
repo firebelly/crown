@@ -1,0 +1,60 @@
+{# Checkbox Form Macro
+
+/////////////////////
+Example instantiation:
+/////////////////////
+
+{%- from 'macros/checkbox.njk' import checkbox %}
+{% set checkboxContent = [] %}
+{% for student in studentList %}
+    {% set slug = student.slug %}
+    {% set label = student.label %}
+
+    {% set checkboxContent = (checkboxContent.push({
+        slug: slug,
+        label: label
+    }), checkboxContent) %}
+{% endfor %}
+
+{{ checkbox({ 
+    legend: "Filter By Student Type", 
+    instructions: "Select as few or as many student types to filter your results",
+    content: checkboxContent 
+}) }}
+
+#}
+{%- macro checkbox(params) -%}
+{% set selector = params.selector %}
+{% set legend = params.legend %}
+{% set instructions = params.instructions %}
+{% set contentList = params.content %}
+{% set modal = params.modal %}
+
+<fieldset class="searchForm-fieldset">
+    <legend class="searchForm-legend">{{ legend }}</legend>
+    <p class="searchForm-instructions">{{ instructions }}</p>
+    <ul class="{{ selector }} {{ selector }}--buttons">
+    {% for i in contentList %}
+        {% set slug = i.slug %}
+        {% set label = i.label %}
+        <li class="{{ selector }}-item">
+            <input 
+                id="{{ slug }}"
+                class="{{ selector }}-input"
+                name="{{ slug }}"
+                {% if modal %}
+                data-modal-search="trigger"
+                {% endif %}
+                type="checkbox" />
+            <label 
+                class="{{ selector }}-action"
+                for="{{ slug }}">
+                <span class="{{ selector }}-action-label">{{ label }}</span>
+                {% include 'src/assets/svgs/icon-close.svg' %}
+            </label>
+        </li>
+    {% endfor %}
+    </ul>
+</fieldset>
+
+{%- endmacro -%}

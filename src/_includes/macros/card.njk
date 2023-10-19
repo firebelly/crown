@@ -1,0 +1,123 @@
+
+{# Excerpt Article #}
+{%- macro excerpt(org,translator) -%}
+    
+    {% set checkmarks        = ['Students','Instruction','Prerequisites'] %}
+    {% set colons            = ['Contact'] %}
+    {% set excludeCategories = ['Info'] %}
+    {% set excludeKeys       = ['program_id'] %}
+
+    {% set programId = org.program_id %}
+    {# HEADER #}
+    {% set name = org.program_name %}
+    {% set logo = org.program_logo %}
+    {# INFO #}
+    {% set stipend  = org.program_stipend %}
+    {% set deadline = org.App_Deadline %}
+    {# LOCATION #}
+    {% set address = org.program_addr1 %}
+    {% set city    = org.program_city %}
+    {% set state   = org.program_state %}
+    {% set zip     = org.program_zip %}
+    {# CONTACT #}
+    {% set phone = org.program_phone %}
+    {% set email = org.program_email %}
+    {% set website = org.program_website %}
+    {# PRIMARY CONTENT #}
+    {% set mission     = org.mission %}
+    {% set initiatives = org.Initiatives %}
+    {% set supervision = org.AreaSupervision %}
+    {% set training    = org.TrainingOppo %}
+    {% set addl        = org.AreaAdditional %}
+
+    <article class="cardItem">
+        <h2 class="cardItem-title">
+            <a href="/detail/{{ programId }}" title="View details for {{ name }}">{{ name }}</a>
+        </h2>
+        {% if mission != 'NULL' %}
+        <div class="cardItem-content">
+            {{ mission }}
+        </div>
+        {% endif %}
+        <a class="cardItem-action" href="/detail/{{ programId }}" title="View details for {{ name }}">
+            <span class="cardItem-action-label">Read More</span>
+            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                {% include 'src/assets/svgs/icon-dbl-chevron-right.svg' %}
+            </span>
+        </a>
+    </article>
+
+
+
+
+
+{%- endmacro -%}
+
+
+{# Full Article #}
+{# Group Object:
+    {% set groups = [] %}
+    {% for key, obj in dataTranslator %}
+        {% set groups = (groups.push({
+                slug: key,
+                label: key|title
+        }), groups) %}
+    {% endfor %}
+#}
+{%- macro article(entry,groups,translator) -%}
+
+<div class="resultItem">
+
+    {% set checkmarks = ['Students','Instruction','Prerequisites'] %}
+    {% set colons     = ['Contact'] %}
+    {% set excludeCategories = ['Info'] %}
+    {% set excludeKeys = ['program_id'] %}
+
+    {# {% set id = entry.program_id %}
+    {% set name = entry.program_name %}
+    {% set location = entry.program_addr1 ~ ' ' ~ entry.program_city ~ ' ' ~ entry.program_state ~ ' ' ~ entry.program_zip %} #}
+
+    {% for g in groups %}
+        {% set slug = g.slug %}
+        {% set category = g.label %}
+        {% set hideCategory = (category in excludeCategories) %}
+        <div class="resultItem-group resultItem-group--{{ slug }}">
+            <h3 class="resultItem-category{% if hideCategory %} _is-hidden{% endif %}">{{ category }}</h3>
+            <div class="resultItem-list">
+                {% for key, label in translator[slug] %}
+                {% set value = entry[key] %}
+
+                {# Massage data render based on value and category #}
+                {% set hasCheckmark = (category in checkmarks and value == 1) %}
+                {% set hasColor = (category in colons) %}
+                {% set hideKey = (key in excludeKeys) %}
+
+                {% if key == 'program_name' %}
+                <h4 class="resultItem-detail-dt">
+                    <a href="detail/{{ entry.program_id }}" title="View Details">{{ value }}</a>
+                </h4>
+                {% else %}
+                
+                {% if not hideKey %}
+                <div class="resultItem-detail resultItem-detail--{{ key|lower }}">
+                    <h4 class="resultItem-detail-dt"></h4>
+                    <div class="resultItem-detail-dd">
+                        {% if hasCheckmark %}
+                        &#x2713 {{ label }}
+                        {% elseif hasColon %}
+                        {{ label }}: {{ value }}
+                        {% else %}
+                        {% if value == 1 %}&#x2713{% else %}{{ value }}{% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+
+                {% endfor %}
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
+{%- endmacro -%}

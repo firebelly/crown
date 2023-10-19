@@ -1,0 +1,322 @@
+/* _results.scss */
+@use "../utils/_utils" as *;
+@use "components/__components" as *;
+@use "sass:string";
+@use "sass:math";
+@use "sass:color";
+
+/* ---------------------------------------------------------------------
+  Search Form
+------------------------------------------------------------------------ */
+@include dropdownMenu('.optionList');
+@include checkboxButtons('.filterList');
+@include savvySearch('.programSearch');
+
+.searchForm {
+	margin: 5em auto; // tmp
+
+	&-rule {
+		border: 0;
+		border-top: 1px dashed $color-primary;
+		margin: 3em 0 2em 0;
+
+		&--alt {
+			margin-top: 1em;
+		}
+	}
+
+	&-wrap {
+		margin: 0 0 3em 0;
+		font-size: 1rem;
+
+		&--primary {
+			padding: 2em;
+			background: color.scale(getColor('greystone'), $alpha:-55%);
+		
+			@include breakpoint(lg) {
+				padding: 5em;
+			}
+		}
+
+		&--secondary {
+			display: flex;
+			flex-flow: row wrap;
+		}
+
+		@include breakpoint(lg) {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: end;
+		}
+	}
+
+	&-fieldset {
+		font-size: 1rem;
+	}
+	
+	&-legend {
+		@include getType('legend-std');
+
+		&--alt {
+			@include visuallyHide;
+		}
+		
+	}
+
+	&-trigger {
+		@include globalTrigger();
+
+		&--alt {
+			margin-left: -1em;
+		}
+	}
+
+	&-instructions {
+		@include getType('p1-std');
+		margin: 1em 0;
+	}
+
+	&-buttons {
+		display: flex;
+		justify-content: center;
+	}
+
+	&-submit {
+        $bg: getColor('lake');
+		@include globalButton($bg);
+		align-items: center;
+		font-size: 1.2rem;
+
+		&--clear {
+			margin-left: 0.8em;
+			border-color: transparent;
+			border-radius: 0;
+			text-decoration: underline;
+			text-underline-offset: 6px;
+		}
+
+	}
+
+	&-criteria {
+		margin: 2em 0 3em 0;
+		font-size: 1rem;
+
+		&-title {
+			@include getType('p1-std');
+			font-weight: 400;
+			margin-bottom: 1em;
+		}
+
+		&-wrap {
+
+			@include breakpoint(lg) {
+				display: flex;
+			}
+			
+		}
+
+		&-li {
+			@include getType('p1-std');
+
+			&:not(:last-of-type)::after {
+				content: "\00a0 : \00a0";
+				display: inline-flex;
+			}
+		}
+	}
+
+}
+
+.optionList {
+	margin: 2em 0;
+
+	&-legend {
+		@include visuallyHide;
+	}
+
+	svg {
+		position: relative;
+    	top: 2px;
+
+		.optionList-input:checked ~ .optionList-trigger & {
+			transform: rotate(180deg);
+			transition: transform 0.1s ease-in-out;
+		}
+	}
+
+}
+
+.filterList {
+	$filter: &;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 2em 0;
+}
+
+.programSearch {
+
+	@include breakpoint(lg) {
+		margin-right: 1em;
+	}
+
+	&-legend {
+		@extend .searchForm-legend;
+	}
+
+	&-instructions {
+		@extend .searchForm-instructions;
+	}
+}
+
+/* ---------------------------------------------------------------------
+  Modal
+------------------------------------------------------------------------ */
+@include modal('.programModal');
+@include modal('.studentModal');
+@include modal('.instructorModal');
+@include radioList('.programList');
+@include radioList('.instructorList');
+
+.programList,
+.instructorList {
+	$gradient-height: 8em;
+
+	&-wrap {
+		height: 100%;
+		position: relative;
+		margin-top: $gradient-height * -0.5;
+		
+		@include gradientFade('top',$gradient-height);
+		@include gradientFade('bottom',$gradient-height);
+	}
+
+	&-trigger {
+		@include globalTrigger();
+	}
+
+	&-options {
+		$thumb-color: getColor('greystone');
+		max-height: 100%;
+		padding: $gradient-height 1em $gradient-height 0;
+		overflow-y: auto;
+		position: relative;
+
+		@include customScrollbar($thumb-color);
+	}
+}
+
+.programList {
+
+	&-trigger {
+		margin: 1em auto 0 auto;
+		display: block;
+	}
+
+	&-buttons {
+		@include globalButtonPair('.programList');
+	}
+}
+
+.instructorModal {
+
+	&-content {
+		min-width: 500px;
+	}
+}
+
+.instructorList {
+
+	&-buttons {
+		@include globalButtonPair('.instructorList');
+	}
+}
+
+.studentList {
+	&-buttons {
+		@include globalButtonPair('.studentList');
+	}
+}
+
+
+/* ---------------------------------------------------------------------
+  Result Container
+------------------------------------------------------------------------ */
+.searchResults {
+	margin: 5em 0 100em 0;
+	opacity: 1;
+	transition: $fade-transition, $slide-transition;
+	transform: translateY(0);
+
+	&._is-inactive {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	&-count {
+		@include getType('h2');
+		margin: 0 0 1em 0;
+	}
+
+	&-container {
+		
+		@include breakpoint(lg) {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2em;
+		}
+	}
+
+}
+
+/* ---------------------------------------------------------------------
+  Result Excerpt: Card
+---------------------------------------------------------------------- */
+.cardItem {
+    font-size: 1rem;
+    border-bottom: 1px solid getColor('greystone',10);
+    margin: 0 0 2em 0;
+    padding: 0 0 4em 0;
+
+    &-title {
+        @include getType('h3');
+        margin-bottom: 1em;
+        font-weight: 400;
+
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: getColor('black');
+            text-decoration: none;
+        }
+    }
+
+    &-content {
+        @include getType('p1-std');
+        margin: 0 0 1em 0;
+    }
+
+    &-action {
+        vertical-align: middle;
+        @include actionAnchor();
+        @include getType('p1-std');
+
+        &:hover {
+            @include actionHover();
+        }
+
+        &-icon {
+            display: inline-flex;
+
+            &--sm {
+                svg {
+                    height: 12px;
+                    width: 12px;
+                }
+                
+            }
+        }
+        
+    }   
+
+}
