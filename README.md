@@ -43,4 +43,8 @@ crown % npx @11ty/eleventy --serve
 
 3. Publish it online using [Netlify](https://app.netlify.com/drop):
 
-Drag your Eleventy-generated `public` folder into the Netlify GUI.
+Drag your Eleventy-generated `public` folder into the Netlify GUI 
+OR
+Auto-deploy when you push to `main` 
+
+Configure [Netflify Settings](https://app.netlify.com/sites/firebelly-crown/configuration/general)
