@@ -1,4 +1,5 @@
 /* _styleguide.scss */
+@use "system" as *;
 @use "mixins" as *;
 @use "helpers" as *;
 @use "config" as *;
@@ -34,156 +35,181 @@ $img-path: '../images/';
 ------------------------------------------------------------------------ */
 $text-map: (
 
-	// AOTM type
+	// Crown
 	/////////////////////
-	// Headlines 0
-	"h0-lg": (),	
-	"h0-sm": (),	
-	// Headlines 1
-	"h1-lg": (
-		font-family: $font-primary,
-		font-feature-settings: var(--ffs),
-		font-size: 11em,
-		font-weight: 200,
-		letter-spacing: 0.01em,
-		line-height: 109%
+	// Active
+	"h1": (
+		"sm": (
+			font: 3em/109% $font-primary,
+			font-weight: 200,
+			letter-spacing: 0.01em,
+		),
+		"lg": (
+			font-size: 3em
+		),
 	),
-	"h1-sm": (),
-	// Headlines 2
-	"h2-lg": (
-		font-family: $font-primary,
-		font-feature-settings: var(--ffs),
-		font-size: 7em,
-		font-weight: 200,
-		letter-spacing: 0.01em,
-		line-height: 114%
+	"h2": (
+		"sm": (
+			font: 2em/136% $font-tertiary,
+			font-weight: 300,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 2em
+		),
 	),
-	"h2-sm": (),
-	// Headlines 3
-	"h3-lg": (
-		font-family: $font-primary,
-		font-feature-settings: var(--ffs),
-		font-size: 5em,
-		font-weight: 200,
-		letter-spacing: 0.025em,
-		line-height: 120%
+	"h3": (
+		"sm": (
+			font: 1.6em/136% $font-tertiary,
+			font-weight: 300,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 1.8em
+		),
 	),
-	"h3-sm": (),
-	// Headlines 4
-	"h4-lg": (
-		font-family: $font-primary,
-		font-feature-settings: var(--ffs),
-		font-size: 4.5em,
-		font-weight: 200,
-		letter-spacing: 0.025em,
-		line-height: 122%
+	"h4": (
+		"sm": (
+			font: 1.4em/136% $font-tertiary,
+			font-weight: 300,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 1.6em
+		),
 	),
-	"h4-sm": (),
-	// Headlines 5
-	"h5-lg": (
-		font-family: $font-primary,
-		font-feature-settings: var(--ffs),
-		font-size: 4em,
-		font-weight: 200,
-		letter-spacing: 0.025em,
-		line-height: 133%
+	"h5": (
+		"sm": (
+			font: 1.4em/136% $font-tertiary,
+			font-weight: 300,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 1.4em
+		),
 	),
-	"h5-sm": (),
-	// Non-headlines
-	"p1-mono": (
-		font-family: $font-secondary,
-		font-feature-settings: var(--ffs),
-		font-size: 2.2em,
-		letter-spacing: 0.025em,
-		line-height: 136%
+	"legend-std": (
+		"sm": (
+			font: 1.6em/136% $font-tertiary,
+			font-weight: 400,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 1.6em
+		),
 	),
 	"p1-std": (
-		font: 2.2em/136% $font-tertiary,
-		font-weight: 300,
-		letter-spacing: 0.025em
+		"sm": (
+			font: 1.4em/136% $font-tertiary,
+			font-weight: 300,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 1.6em
+		),
 	),
-	"p2-mono": (
-		font-family: $font-secondary,
-		font-feature-settings: var(--ffs),
-		font-size: 1.8em,
-		letter-spacing: 0.015em,
-		line-height: 139%
+	"p1-detail": (
+		"sm": (
+			font: 1em/136% $font-tertiary,
+			font-weight: 300,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 1.1em
+		),
 	),
-	"p2-std": (
-		font: 1.8em/139% $font-tertiary,
-		font-weight: 300,
-		letter-spacing: 0.015em
+	"crumb": (
+		"sm": (
+			font: 1em/136% $font-tertiary,
+			font-weight: 300,
+			letter-spacing: 0.025em
+		),
+		"lg": (
+			font-size: 1em
+		),
 	),
-	"p2-std-bold": (
-		font: 1.8em/139% $font-quaternary,
-		letter-spacing: 0.015em
+	"p1-sm": (
+		"sm": (
+			font: 1.2em/156% $font-secondary,
+		),
+		"lg": (
+			font-size: 1.2em
+		),
 	),
 	"input-std": (
-		font: 1.6em/156% $font-tertiary,
-		letter-spacing: 0.015em
+		"sm": (
+			font: 1.6em/156% $font-tertiary,
+			letter-spacing: 0.015em
+		),
+		"lg": (
+			font-size: 1.6em
+		),
 	),
-	"caption-p": (
-		font: 1.4em/143% $font-tertiary,
-		letter-spacing: 0.015em
+	"input-sm": (
+		"sm": (
+			font: 1.4em/143% $font-tertiary,
+			letter-spacing: 0.015em
+		),
+		"lg": (
+			font-size: 1.4em
+		),
 	),
-	"caption-p-bold": (
-		font: 1.4em/143% $font-quaternary,
-		letter-spacing: 0.015em
-	),
-	"caption-title": (
-		font: 1.4em/179% $font-quaternary,
-		font-weight: 700,
-		letter-spacing: 0.2em,
-		text-transform: uppercase
-	),
-	"detail-std": (
-		font: 1.2em/167% $font-quaternary,
-		letter-spacing: 0.015em
-	),
-	"detail-mono": (
-		font-family: $font-secondary,
-		font-feature-settings: var(--ffs),
-		font-size: 1.2em,
-		letter-spacing: 0.015em,
-		line-height: 167%
-	),
-	"nav-mono": (
-		font-family: $font-secondary,
-		font-feature-settings: var(--ffs),
-		font-size: 1.6em,
-		letter-spacing: 0.015em,
-		line-height: 250%
-	),
-
-	// Firestarter type
-	/////////////////////
-	"fs-h0-lg": (
-		font: 10em/86% $fs-font-primary,
-		letter-spacing: 0.02em
-	),	
-	"fs-h0-sm": (),
-	"fs-h3-lg": (
-		font: 5em/86% $fs-font-primary
-	),	
-	"fs-h3-sm": (),
-	"fs-h4-lg": (
-		font: 3em/86% $fs-font-primary,
-		letter-spacing: 0.015em
-	),	
-	"fs-h4-sm": (),
-	"fs-h5-lg": (
-		font: 2em/86% $fs-font-primary,
-		letter-spacing: 0.015em
-	),	
-	"fs-h5-sm": (),
-	// Non-headlines
-	"fs-p1": (
-		font: 2em/150% $fs-font-secondary,
-		letter-spacing: 0.015em
-	),
-	"fs-p2": (),
-	"fs-p3": (),
 	
+	// Non-headlines
+	// "p1-mono": (
+	// 	font-family: $font-secondary,
+	// 	font-feature-settings: var(--ffs),
+	// 	font-size: 2.2em,
+	// 	letter-spacing: 0.025em,
+	// 	line-height: 136%
+	// ),
+	
+	// "p2-mono": (
+	// 	font-family: $font-secondary,
+	// 	font-feature-settings: var(--ffs),
+	// 	font-size: 1.8em,
+	// 	letter-spacing: 0.015em,
+	// 	line-height: 139%
+	// ),
+	// "p2-std": (
+	// 	font: 1.8em/139% $font-tertiary,
+	// 	font-weight: 300,
+	// 	letter-spacing: 0.015em
+	// ),
+	// "p2-std-bold": (
+	// 	font: 1.8em/139% $font-quaternary,
+	// 	letter-spacing: 0.015em
+	// ),
+	
+	
+	// "caption-p-bold": (
+	// 	font: 1.4em/143% $font-quaternary,
+	// 	letter-spacing: 0.015em
+	// ),
+	// "caption-title": (
+	// 	font: 1.4em/179% $font-quaternary,
+	// 	font-weight: 700,
+	// 	letter-spacing: 0.2em,
+	// 	text-transform: uppercase
+	// ),
+	// "detail-std": (
+	// 	font: 1.2em/167% $font-quaternary,
+	// 	letter-spacing: 0.015em
+	// ),
+	// "detail-mono": (
+	// 	font-family: $font-secondary,
+	// 	font-feature-settings: var(--ffs),
+	// 	font-size: 1.2em,
+	// 	letter-spacing: 0.015em,
+	// 	line-height: 167%
+	// ),
+	// "nav-mono": (
+	// 	font-family: $font-secondary,
+	// 	font-feature-settings: var(--ffs),
+	// 	font-size: 1.6em,
+	// 	letter-spacing: 0.015em,
+	// 	line-height: 250%
+	// ),
 );
 
 /* ---------------------------------------------------------------------
@@ -193,113 +219,178 @@ $text-map: (
  getType('h2-lg');
 ------------------------------------------------------------------------ */
 @mixin getType($name) {
-	$type-attrs: map-get($text-map, $name);
+	$map: map-get($text-map, $name);
+
+	$sm-attrs: map-get($map,'sm');
+	$lg-attrs: map-get($map,'lg');
 
 	// Explode the attr-props
-	@each $attr, $prop in $type-attrs {
+	@each $attr, $prop in $sm-attrs {
 		#{$attr}: $prop;
-	}
-}
 
-
-/* ---------------------------------------------------------------------
-	Text Block
------------------------------------------------------------------------- */
-@mixin text-block {
-	h3,
-	h4 {
-		@include getType('caption-title');
-		max-width: 30em;
-
-		@media screen and (min-width: map-get($breakpoints,'md')) {
-			margin-bottom: var(--space-xxs);
-		}
-	}
-
-	p,
-	ul,
-	ol {
-		@include getType('p2-std');
-		
-		@media screen and (min-width: map-get($breakpoints,'md')) {
-			@include getType('p1-std');
-		}
-
-		max-width: 30em;
-
-		&:not(:last-child) {
-			margin-bottom: 1.4545454545em;
-		}
-	}
-
-	ul {
-		list-style-type: disc;
-
-		li {
-			margin-left: 0.8888888889em;
-		}
-	}
-
-	ol {
-		list-style-type: decimal;
-
-		li {
-			margin-left: 1.2222222222em;
-			padding-left: 0.2222222222em;
-		}
-	}
-
-	ul, ol {
-		li {
-			padding-left: 0.2222222222em;
-
-			&:not(:last-child) {
-				margin-bottom: 0.2222222222em;
+		@include breakpoint(lg) {
+			@each $attr, $prop in $lg-attrs {
+				#{$attr}: $prop;
 			}
 		}
 	}
 }
 
+/* ---------------------------------------------------------------------
+ Theme
+------------------------------------------------------------------------ */
+$color-primary: getColor('black');
+$color-secondary: getColor('white');
 
 /* ---------------------------------------------------------------------
-	Rhythm
+  Globals Vars
 ------------------------------------------------------------------------ */
-@mixin rhythm-md {
-	> * {
-		&:not(:last-child) {
-			margin-bottom: var(--space-md);
+$palette-transition: background .3s, color .3s;
+$fill-transition: fill .3s;
+$fade-transition: opacity .5s;
+$slide-transition: transform .5s;
+
+/* ---------------------------------------------------------------------
+  Buttons
+------------------------------------------------------------------------ */
+
+@mixin globalButton($colors...) {
+	$color-count: length($colors);
+	
+	$color-primary: if($color-count >= 1,nth($colors,1),$color-primary);
+	$color-secondary: if($color-count >= 2,nth($colors,2),$color-secondary);
+
+	@include resetButton;
+	border: 1px solid $color-primary;
+	border-radius: 8px;
+	padding: 0.6em 0.5em 0.8em;
+	transition: $palette-transition;
+	background: $color-secondary;
+	color: $color-primary;
+	font-size: 1rem;
+	display: flex;
+	align-items: end;
+
+	&-label {
+		@include getType('input-sm');
+	}
+
+	svg {
+		height: 16px;
+		width: 16px;
+		margin-left: 0.5em;
+		fill: $color-primary;
+		transition: $fill-transition;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			cursor: pointer;
+			background: $color-primary;
+			color: $color-secondary;
+
+			svg {
+				fill: $color-secondary;
+			}
 		}
 	}
 }
 
-@mixin rhythm-lg {
-	> * {
-		&:not(:last-child) {
-			margin-bottom: var(--space-lg);
+@mixin globalButtonPair($selector) {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: end;
+
+	@at-root {
+		#{$selector}-action {
+			@include globalButton();
+
+			&:nth-of-type(1) {
+				margin-right: 1em;
+			}
+
+			&--alt {
+				border: none;
+				border-radius: 0;
+				text-decoration: underline;
+				text-underline-offset: 5px;
+			}
+
 		}
 	}
 }
 
-@mixin rhythm-xl {
-	> * {
-		&:not(:last-child) {
-			margin-bottom: var(--space-xl);
+
+@mixin globalTrigger() {
+	@include resetButton;
+	@include getType('input-std');
+	padding: 1em;
+	text-decoration: underline;
+	text-underline-offset: 6px;
+	transition: $palette-transition;
+
+	@media (hover: hover) {
+		&:hover  {
+			cursor: pointer;
+			background: getColor('lake');
+			color: getColor('white');
+			transition: $palette-transition;
+
+			svg {
+				fill: getColor('white');
+				transition: $fill-transition;
+			}
+
 		}
 	}
+
+	svg {
+		fill: getColor('black');
+		margin-left: 0.3em;
+		width: 15px;
+		height: 15px;
+		transition: $fill-transition;
+	}
+	
 }
 
-@mixin rhythm-xxl {
-	> * {
-		&:not(:last-child) {
-			margin-bottom: var(--space-xxl);
-		}
-	}
+/* ---------------------------------------------------------------------
+  Links
+------------------------------------------------------------------------ */
+@mixin actionAnchor() {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        color: getColor('lake');
+        text-decoration-thickness: 1px;
+        text-underline-offset: 5px;
+    }
 }
 
-@mixin rhythm-xxxl {
-	> * {
-		&:not(:last-child) {
-			margin-bottom: var(--space-xxxl);
-		}
-	}
+@mixin actionLabel() {
+    color: getColor('lake');
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: getColor('lake');
+    text-underline-offset: 5px;
+}
+
+@mixin actionHover() {   
+    background: getColor('lake');
+    color: getColor('white');
+    outline: 6px solid getColor('lake');
+
+    svg {
+        fill: getColor('white');
+    }    
+}
+
+@mixin simpleLink() {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+        text-decoration: none;
+    }
 }

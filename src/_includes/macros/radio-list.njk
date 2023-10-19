@@ -1,0 +1,35 @@
+{%- macro radio(params) -%}
+{% set selector = params.selector %}
+{% set legend = params.legend %}
+{% set group = params.group %}
+{% set contentList = params.content %}
+{% set modal = params.modal %}
+
+<legend class="{{ selector }}-legend">{{ legend }}</legend>
+<div class="{{ selector }}-wrap">
+    <ul class="{{ selector }}-options">  
+        {% for i in contentList %}
+        {% set label = i.label %}
+        {% set id    = i.id %}
+
+        <li class="{{ selector }}-field">
+            <input 
+                id="instructor_{{ id }}"
+                class="{{ selector }}-input"
+                name="{{ group }}"
+                type="radio"
+                value={{ id }}
+                {% if modal %}
+                data-modal-search="trigger"
+                {% endif %} />
+            <label   
+                class="{{ selector }}-label" 
+                for="instructor_{{ id }}">
+                {{ label }}
+            </label>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{%- endmacro -%}

@@ -1,0 +1,30 @@
+[
+    {
+        "slug": "sta_ma1",
+        "label": "First Year Masters Students"
+    },
+    {
+        "slug": "sta_ma2",
+        "label": "Second Year Masters Students"
+    },
+    {
+        "slug": "sta_eep",
+        "label": "Core Masters Evening Students"
+    },
+    {
+        "slug": "sta_eep_cl",
+        "label": "Clincial Evening Masters Students"
+    },
+    {
+        "slug": "sta_eep_sa",
+        "label": "Social Admin Evening Masters Students"
+    },
+    {
+        "slug": "sta_sum",
+        "label": "Summer Block Masters Students"
+    },
+    {
+        "slug": "sta_ssl",
+        "label": "Social Service Sector Students"
+    }
+]

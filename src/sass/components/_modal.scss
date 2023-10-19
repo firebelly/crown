@@ -1,0 +1,147 @@
+/* _modals.scss */
+@use "../utils/_utils" as *;
+@use "sass:math";
+@use "sass:meta";
+
+/* ---------------------------------------------------------------------
+  Modal Structure
+------------------------------------------------------------------------ */
+@mixin modal($selector,$default:true,$colors...) {
+
+    #{$selector} {
+		font-size: 1rem;
+    
+        &-dialog,
+        &-overlay {
+            height: 100%;
+            width: 100%;
+            top: 0; 
+            right: 0; 
+            bottom: 0; 
+            left: 0; 
+            position: fixed;
+        }
+
+        &-dialog {
+            // enable scroll on small vw's
+            overflow-y: scroll; 
+            //////////////////////////////
+            display: flex; 
+            &[aria-hidden="true"] {
+                display: none; 
+            }
+            z-index: 20;
+
+            // default scroll on larger vw's
+            @include breakpoint(md) {
+                overflow: auto;
+            }
+            //////////////////////////////
+
+        }
+
+        &-content {
+            $wrapper-width: 1000px;
+            $wrapper-height-md: 514px;
+            $wrapper-height-lg: 572px;
+            $wrapper-height-xl: 630px;
+            position: relative;
+            box-shadow: 0 2px 30px rgba(0,0,0,.5);
+            z-index: 2;
+
+            @include breakpoint(md) {
+                // @include flexParent();
+                height: $wrapper-height-md;
+                max-width: $wrapper-width;
+                margin: 10em auto;
+                padding: 4em;
+            }   
+
+            @include breakpoint(lg) {
+                height: $wrapper-height-lg;
+            }
+
+            @include breakpoint(xl) {
+                height: $wrapper-height-xl;
+            }
+
+        }
+
+        &-trigger {
+            $top: 1.5em;
+            $right: 1.2em;
+            @include resetButton;
+            position: absolute;
+            top: $top;
+            right: $right;
+            z-index: 1;
+            font-size: 1rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus {
+                outline: revert;
+            }
+
+            &-label,
+            &-icon {
+                pointer-events: none;
+            }
+
+        }
+
+
+    }
+
+    @if $default != false {
+		@include modal--default($selector,$colors...);
+	}
+
+}
+
+/* -------------------------------------------------------------------------------
+ Modal: Default Presentation
+---------------------------------------------------------------------------------- */
+@mixin modal--default($selector,$colors...) {
+
+    $color-count: length($colors);
+    // Define additional colors as needed
+    $color-primary: if($color-count >= 1,nth($colors,1),null);
+    $color-secondary: if($color-count >= 2,nth($colors,2),null);
+    $color-tertiary: if($color-count >= 3,nth($colors,3),null);
+
+    $overlay-color: #000000;
+
+	#{$selector} {  
+
+        &-overlay {
+            background-color: rgba($overlay-color,0.5);    
+        }
+
+        &-content {
+            background: white;
+            max-width: 800px;
+            margin: 10em auto;
+            padding: 4em;
+        }
+
+        &-trigger {
+            $icon-height: 30px;
+            $icon-width: 30px;
+
+            &-icon, svg {
+                display: inline-block;
+                height: $icon-height;
+                width: $icon-width;
+            }
+
+            &-label {   
+                @include visuallyHide;
+            }
+
+        }
+
+    }
+}

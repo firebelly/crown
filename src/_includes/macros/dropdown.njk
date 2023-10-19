@@ -1,0 +1,67 @@
+{# Dropdown Macro
+
+/////////////////////
+Example instantiation:
+/////////////////////
+
+{%- from 'macros/dropdown.njk' import dropdown %}
+{% set dropdownContent = [] %}
+{% for org in organizationList %}
+    {% set dropdownContent = (dropdownContent.push({
+        name: org.program_name,
+        id: org.program_id
+    }), dropdownContent) %}
+{% endfor %}
+
+{{ dropdown({ 
+    legend: "Select Organization", 
+    label: "Organization",
+    content: dropdownContent 
+}) }}
+
+#}
+{%- macro dropdown(params) -%}
+{% set selector = params.selector %}
+{% set legend = params.legend %}
+{% set label = params.label %}
+{% set contentList = params.content %}
+<fieldset 
+    class="{{ selector }} {{ selector }}--block" 
+    data-dropdown="form">
+    <legend class="{{ selector }}-legend">{{ legend }}</legend>
+    <input 
+        id="orgMenu" 
+        class="{{ selector }}-input"
+        type="checkbox" 
+        name="orgMenu"
+        data-dropdown="target" />
+    <label 
+        class="{{ selector }}-trigger" 
+        for="orgMenu">
+        <span 
+            class="{{ selector }}-label"
+            data-dropdown="label">Filter By {{ label }}</span>
+        {% include 'src/assets/svgs/icon-caret-down.svg' %}
+    </label>
+            
+    <ul class="{{ selector }}-dropdown {{ selector }}-dropdown--block">
+        {% for i in contentList %}
+        {% set name = i.name %}
+        {% set id = i.id %}
+        <li class="{{ selector }}-dropdown-li">
+            <input 
+                id="program_{{ id }}"
+                class="{{ selector }}-dropdown-input"
+                name="program_id"
+                type="radio"
+                value="{{ id }}"
+                data-dropdown="trigger" />
+            <label
+                class="{{ selector }}-dropdown-label"
+                for="program_{{ id }}">{{ name }}
+            </label>
+        </li>
+        {% endfor %}
+    </ul>
+</fieldset>
+{%- endmacro -%}

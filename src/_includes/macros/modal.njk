@@ -1,0 +1,79 @@
+{# Modal: Initialized as an A11y Dialog 
+
+/////////////////////
+Example instantiation:
+/////////////////////
+{%- from 'macros/modal.njk' import modal %}
+{% set modalContent %}
+    <ul>
+        {% for org in organizationList %}
+        {% set label = org.program_name %}
+        {% set id = org.program_id %}
+        <li>
+            {{ label }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endset %}
+
+{{ modal({ 
+    selector: "orgModal", 
+    content: modalContent 
+}) }}
+
+/////////////////////
+Example modal trigger:
+/////////////////////
+<button 
+    class="programList-trigger" 
+    data-a11y-dialog-show="orgModal_dialog"
+    type="button">
+    <span>View full program list</span>
+    {% include 'src/assets/svgs/icon-expand.svg' %}
+</button>
+
+#}
+{%- macro modal(params) -%}
+{% set selector = params.selector %}
+{% set content = params.content %}
+{% set search = params.search %}
+<div 
+    class="{{ selector }}-dialog"
+    id="{{ selector }}_dialog"
+    aria-labelledby="{{ selector }}_dialog_title"
+    aria-hidden="true">
+    <div 
+        class="{{ selector }}-overlay" 
+        data-a11y-dialog-hide="{{ selector }}_dialog">
+    </div>
+    
+    <div 
+        class="{{ selector }}-content" 
+        id="{{ selector }}_content" 
+        role="document"
+        {% if search %}
+        data-modal-search="form"
+        data-search-key="{{ search }}"
+        {% endif %}>
+        
+            <button 
+                id="close_dialog" 
+                class="{{ selector }}-trigger {{ selector }}-trigger--close" 
+                role="button" 
+                type="button" 
+                data-a11y-dialog-hide="{{ selector }}_dialog" 
+                aria-label="Close dialog"
+                {% if search %}
+                data-modal-search="apply"
+                {% endif %}
+                >
+                <span class="{{ selector }}-trigger-label">Close</span>
+                {% include 'src/assets/svgs/icon-close.svg' %} 
+            </button>
+
+            {{ content| safe }}
+            
+        
+    </div>
+</div>
+{%- endmacro -%}

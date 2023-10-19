@@ -1,0 +1,73 @@
+
+    {# Organization Intellisearch #}
+    {%- from 'macros/savvy.njk' import savvy %}
+    {{ savvy({ 
+        selector: "programSearch",
+        id: "program_id",
+        legend: "Filter Results By Organization", 
+        instructions: "Start typing to search for an organization by name, or<br /> select an organization by viewing the full list.",
+        label: "organizations" 
+    }) }}
+
+    {# Organization Modal: Radio Buttons #}
+    <fieldset class="programList">
+        
+        <button 
+            class="programList-trigger" 
+            data-a11y-dialog-show="programModal_dialog"
+            type="button">
+            <span>View Full Organization List</span>
+            {% include 'src/assets/svgs/icon-expand.svg' %}
+        </button>
+
+        {%- from 'macros/modal.njk' import modal %}
+        {% set modalContent %}
+            <legend class="programList-legend">Select an organization to filter results</legend>
+            <div class="programList-wrap">
+                <ul class="programList-options" >
+                    {% for org in organizationList %}
+                    {% set label = org.program_name %}
+                    {% set id = org.program_id %}
+                    <li class="programList-field">
+                        <input 
+                            id="modal_program_id_{{ id }}"
+                            class="programList-input"
+                            name="modal_program_id"
+                            type="radio"
+                            value={{ id }}
+                            data-modal-search="trigger" />
+                        <label   
+                            class="programList-label" 
+                            for="modal_program_id_{{ id }}">
+                            {{ label }}
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="programList-buttons">
+                <button 
+                    class="programList-action programList-action--alt" 
+                    data-modal-search="clear"
+                    type="button">
+                    <span class="programList-action-label">Clear</span>
+                </button>
+                <button 
+                    class="programList-action" 
+                    data-a11y-dialog-hide="programModal_dialog" 
+                    aria-label="Close dialog"
+                    data-modal-search="apply"
+                    type="button">
+                        <span class="programList-action-label">Apply</span>
+                        {% include 'src/assets/svgs/icon-arrow-right.svg' %}
+                    </button>
+            </div>
+
+        {% endset %}
+        {{ modal({ 
+            selector: "programModal", 
+            content: modalContent,
+            search: "organizations"
+        }) }}
+    </fieldset>

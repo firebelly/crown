@@ -1,0 +1,13 @@
+/* __components.scss */
+
+/* ---------------------------------------------------------------------
+ Aggregate file that contains components for the app
+ 1. Double-underscore naming convention to denote this is an aggregate file
+ 2. Order matters
+ 3. @forward make everything available when __components is loaded via @use rule within other stylesheets
+------------------------------------------------------------------------ */
+@forward 'dropdown-menu';
+@forward 'checkbox-form';
+@forward 'radio-form';
+@forward 'savvy-search';
+@forward 'modal';

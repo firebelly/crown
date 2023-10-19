@@ -1,0 +1,52 @@
+/* _radio-form.scss */
+@use "../utils/_utils" as *;
+@use "sass:string";
+@use "sass:math";
+
+/* ---------------------------------------------------------------------
+  Radio Form
+------------------------------------------------------------------------ */
+@mixin radioList($selector,$colors...) {
+
+	#{$selector} {
+        font-size: 1rem;
+	
+        &-legend {
+            @include getType('legend-std');
+            padding-left: 0.5em;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+        
+        &-field {
+            position: relative;
+        }
+
+        &-input {
+            @include customInput();
+        }
+
+        &-label {
+            display: block;
+            padding: 0.5em 0.8em;
+            @include getType('input-sm');
+            transition: $palette-transition;
+
+            #{$selector}-input:checked ~ & {
+                background: getColor('black');
+                color: getColor('white');
+            }
+
+            @media (hover: hover) {
+                #{$selector}-field:hover & {
+                    background: getColor('black');
+                    color: getColor('white');
+                }
+            }
+
+        }
+
+    }
+
+}
