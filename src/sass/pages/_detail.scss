@@ -1,0 +1,248 @@
+/* _detail.scss */
+@use "../utils/_utils" as *;
+@use "sass:string";
+@use "sass:math";
+
+
+/* ---------------------------------------------------------------------
+  Detail Content
+------------------------------------------------------------------------ */
+@keyframes fadeInUp {
+	from {
+		transform: translateY(50px);
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.detailContainer {
+    padding: 2em 0 0 0;
+}
+
+.breadCrumbs {
+    @include getType('crumb');
+    @include actionAnchor();
+    display: inline-flex;
+
+    @media (hover: hover) {
+        &:hover {
+            @include actionHover(); 
+            text-decoration: none;
+        }
+    }
+
+    &-icon {
+        svg {
+            margin-top: 0.1em;
+            height: 18px;
+            width: 18px;
+        }
+    }
+}
+
+.detailHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 4em 0;
+    opacity: 0.01;
+    animation: 1s 0s fadeInUp forwards;
+
+    > * {
+        flex: 0 1 auto;
+    }
+
+    &-title {
+        @include getType('h2');
+    }
+
+    &-logo {
+        margin: 0 2em 0 0;
+        flex-basis: 100px;
+
+        img {
+            max-width: none;
+        }
+
+    }
+
+}
+
+.detailMain {
+    padding: 0 0 3em 0;
+    opacity: 0.01;
+    animation: 1s 1s fadeInUp forwards;
+
+    @include breakpoint(lg) {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    &-col {
+
+        @include breakpoint(lg) {
+            flex: 0 1 auto;
+        }
+
+        &--primary {
+            padding: 4em 0 0 0;
+
+            @include breakpoint(lg) {
+                flex-basis: 75%;
+                padding: 0 0 0 2em;
+            }
+        }
+
+        &--secondary {
+            border-bottom: 1px solid getColor('greystone');
+            padding: 0 0 2em 0;
+
+            @include breakpoint(lg) {
+                flex-basis: 25%;
+                border-bottom: 0;
+                border-right: 1px solid getColor('greystone');
+                padding: 0 2em 0 0;
+            }
+        }
+
+
+    }
+
+}
+
+
+.asideContent {
+
+    &-inner {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        @include breakpoint(lg) {
+            display: block;
+
+            > * {
+                flex-basis: 100%;
+            }
+        }
+
+        > * {
+            flex: 0 1 50%;
+        }
+
+    }
+
+}
+
+/* ---------------------------------------------------------------------
+  Text Block
+------------------------------------------------------------------------ */
+.textBlock {
+    font-size: 1.5rem;
+
+    &-title {
+        @include getType('h4');
+        font-weight: 400;
+	    margin-bottom: 0.5em
+    }
+
+    &-content {
+        @include getType('p1-detail');
+		margin-bottom: 2em;
+		line-height: 1.5;
+
+        a {
+            @include actionAnchor();
+        }
+
+		p {
+			margin: 0 0 1em 0;
+		}
+
+		&-item {
+			&--alt {
+				margin-top: 1em;
+			}
+		}
+
+	}
+   
+}
+
+
+/* ---------------------------------------------------------------------
+  Aside Block
+------------------------------------------------------------------------ */
+.asideBlock {
+    font-size: 1.5rem;
+
+    &-title {
+        @include getType('h4');
+		font-weight: 400;
+		margin-bottom: 0.5em;
+    }
+
+    &-content {
+        @include getType('p1-detail');
+        margin-bottom: 2em;
+		line-height: 1.5;
+		max-width: 550px;
+
+        a {
+            @include actionAnchor();
+
+            @media (hover: hover) {
+                &:hover {
+                    @include actionHover();
+                }
+            }
+        }
+
+		p {
+			margin: 0 0 1em 0;
+		}
+
+    }
+
+    &-list {
+
+        &--bullets {
+            margin-left: 1em;
+            list-style-type: disc;
+        }
+    }
+
+    &-item {
+        $item: &;
+
+        line-height: 2;
+
+        &--alt {
+            margin-top: 1em;
+        }
+
+        &-action {
+           vertical-align: middle;
+        }
+
+        &-icon {
+            display: inline-flex;
+
+            &--sm {
+                svg {
+                    height: 12px;
+                    width: 12px;
+                }
+                
+            }
+
+            #{$item}-label + & {
+                margin-left: 0.2em;  
+            }
+
+        }
+    }
+
+}

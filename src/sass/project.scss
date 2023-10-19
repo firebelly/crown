@@ -4,7 +4,9 @@
  Project-specific generic element declarations
 ------------------------------------------------------------------------ */
 @use "utils/_utils" as *;
+@use "components/__components" as *;
 @use "sass:math";
+@use "sass:color";
 
 * {
 	box-sizing: border-box;
@@ -29,8 +31,8 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background: getColor('black',10);
-	color: getColor('white',10);
+	background: getColor('white');
+	color: getColor('black');
 	font-family: $font-tertiary;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -126,4 +128,28 @@ img {
 
 .skip-link:focus-within {
 	transform: translateY(0%);
+}
+
+/* ---------------------------------------------------------------------
+  Shell	
+------------------------------------------------------------------------ */
+.primaryHeader {
+	padding: 2em 0;
+	background: getColor('greystone');
+
+	&-title {
+		@include getType('h1');
+		font-weight: 400;
+		text-align: center;
+	}
+}
+
+.primaryContent {
+	padding: 2em;
+
+	@include breakpoint(lg) {
+		margin: 0 auto;
+		max-width: 1050px;
+	}
+
 }

@@ -80,32 +80,6 @@ $font-secondary: $secondary-name, $secondary-serif;
 $font-tertiary: $tertiary-name, $tertiary-serif;
 $font-quaternary: $quaternary-name, $quaternary-serif;
 
-// Define Firestarter fonts
-$fs-primary-name: 'Surt Bold';
-$fs-primary-file: 'surt-bold';
-$fs-primary-style: 'bold';
-$fs-primary-serif: 'sans-serif'; // e.g. sans-serif || serif
-
-$fs-secondary-name: 'Surt Light';
-$fs-secondary-file: 'surt-light';
-$fs-secondary-style: 'normal';
-$fs-secondary-serif: 'sans-serif';
-
-$fs-tertiary-name: '';
-$fs-tertiary-file: '';
-$fs-tertiary-style: '';
-$fs-tertiary-serif: '';
-
-$fs-dir: null;
-
-@include getFont($fs-primary-name, $fs-dir, $fs-primary-file, $fs-primary-style);
-@include getFont($fs-secondary-name, $fs-dir, $fs-secondary-file, $fs-secondary-style);
-@include getFont($fs-tertiary-name, $fs-dir, $fs-tertiary-file, $fs-tertiary-style);
-
-$fs-font-primary: $fs-primary-name, $fs-primary-serif;
-$fs-font-secondary: $fs-secondary-name, $fs-secondary-serif;
-$fs-font-tertiary: $fs-tertiary-name, $fs-tertiary-serif;
-
 
 /* ---------------------------------------------------------------------
  palettes() Map
@@ -123,28 +97,44 @@ $fs-font-tertiary: $fs-tertiary-name, $fs-tertiary-serif;
 ------------------------------------------------------------------------ */
 $palettes: (
 
-	'flame': (
-		core: #FF472F
+	'maroon': (
+		core: #800000
 	),
-	'deep': (
-		core: #1F42EE,
-		10: #0f5fff,
+	'brick': (
+		core: #A4343A,
+		10: #B46A55,
+		20: #643335
 	),
-	'wheat': (
-		core: #FFDEB8
+	'greystone': (
+		core: #D9D9D9,
+		10: #A6A6A6,
+		20: #737373
 	),
-	'gray': (
-		core: #696A6B,
-		10: #C6C7C7
+	'goldenrod': (
+		core: #EAAA00,
+		10: #F3D03E,
+		20: #CC8A00
+	),
+	'terracotta': (
+		core: #DE7C00,
+		10: #ECA154,
+		20: #A9431E
+	),
+	'ivy': (
+		core: #789D4A,
+		10: #A9C47F,
+		20: #13301C
+	),
+	'lake': (
+		core: #007396,
+		10: #3EB1C8,
+		20: #002A3A
 	),
 	'white': (
-		core: #FFFFFF,
-		10: #F5F5F5
+		core: #FFFFFF
 	),
 	'black': (
-		core: #000000,
-		10: #0F1518,
-		20: #696A6B
+		core: #000000
 	)
 
 );

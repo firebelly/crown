@@ -1,0 +1,30 @@
+{%- macro results(params) -%}
+{% for result in resultList %}
+        
+    <div class="resultItem">
+
+        {#    
+        {% set category, variant, label, value = '', '', '', '' %}
+
+        {% set checkmarks = ['Students','Instruction','Prerequisites'] %}
+        {% set colons     = ['Contact'] %}
+        {% if category in checkmarks and value == 1 %}
+        <div class="resultItem-detail resultItem-detail--${variant}">
+            <div class="resultItem-detail-dd">&#x2713 {{ label }}</div>
+        </div>
+        {% elseif category in colons %}
+        <div class="resultItem-detail resultItem-detail--${variant}">
+            <div class="resultItem-detail-dd">{{ label }}: {{ value }}</div>
+        </div>
+        {% else %}
+        <div class="resultItem-detail resultItem-detail--${variant}">
+            <h4 class="resultItem-detail-dt">{{ label }}</h4>
+            <div class="resultItem-detail-dd">{% if value == 1 %}&#x2713{% else %}{{ value }}</div>
+        </div>
+        {% endif %}
+        #}
+
+    </div>
+
+{% endfor %}
+{%- endmacro -%}

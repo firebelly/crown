@@ -1,0 +1,63 @@
+{# Savvy Search Macro
+
+/////////////////////
+Example instantiation:
+/////////////////////
+
+{%- from 'macros/savvy.njk' import savvy %}
+
+{{ savvy({ 
+    legend: "Search Organizations", 
+    instructions: "If you know",
+    label: "organizations" 
+}) }}
+
+#}
+{%- macro savvy(params) -%}
+
+{% set selector = params.selector %}
+{% set legend = params.legend %}
+{% set instructions = params.instructions %}
+{% set searchId = params.id %}
+{% set label = params.label %}
+
+<fieldset 
+    class="{{ selector }}" 
+    id="savvy_{{ searchId }}" 
+    data-savvy-search="form">
+
+    <legend class="{{ selector }}-legend">{{ legend }}</legend>
+    
+    <p class="{{ selector }}-instructions">{{ instructions|safe }}</p>
+
+    <div class="{{ selector }}-wrap">
+        <label   
+            class="{{ selector }}-label" 
+            for="name_{{ searchId }}">
+            {{ label }}
+        </label>
+        <input 
+            id="{{ searchId }}"
+            name="{{ searchId }}"
+            type="hidden"
+            data-savvy-search="id" />
+        <input 
+            id="name_{{ searchId }}"
+            class="{{ selector }}-trigger"
+            name="name_{{ searchId }}"
+            type="text"
+            placeholder="Search..."
+            data-savvy-search="trigger" />
+        
+        <button 
+            class="{{ selector }}-reset _is-inactive" 
+            type="button" 
+            data-savvy-search="reset">
+            {% include 'src/assets/svgs/icon-close.svg' %} 
+        </button>
+
+        {# JS dynamically rendered content goes here #}        
+        <ul class="{{ selector }}-output" data-savvy-search="output"></ul>
+    </div>
+</fieldset>
+{%- endmacro -%}

@@ -8,156 +8,6 @@
 ------------------------------------------------------------------------ */
 
 /* ---------------------------------------------------------------------
- Flex Container
------------------------------------------------------------------------- */
-// Container
-@mixin flexBox($value:flex) {
-    $prefix: if($value == 'inline-flex','inline-','');
-    display: -webkit-#{$prefix}box;
-	display: -ms-#{$prefix}flexbox;
-	display: -webkit-#{$prefix}flex;
-	display: $value;
-}
-
-// Direction options: row | row-reverse | column | column-reverse;
-@mixin flexDirection($direction:row) {
-	flex-direction: $direction;
-}
-
-// Wrap options: flex-wrap: nowrap | wrap | wrap-reverse;
-@mixin flexWrap($wrap:nowrap) {
-	flex-wrap: $wrap;
-}
-
-// Flex direction and wrap shorthand
-@mixin flexFlow($values:row nowrap) {
-    -webkit-flex-flow: $values;
-    flex-flow: $values;
-}
-
-/* ---------------------------------------------------------------------
- Flex Items
------------------------------------------------------------------------- */
-@mixin flexGrow($value:0) {
-	flex-grow: $value;
-}
-
-@mixin flexShrink($value:1) {
-	flex-shrink: $value;
-}
-
-// Basis options: auto | $length (e.g. 33% or 3rem)
-@mixin flexBasis($value:auto) {
-	flex-basis: $value;
-}
-
-// Alignment options: auto | flex-start | flex-end | center | baseline | stretch
-// Overrides default align-items on individual flex items
-@mixin alignSelf($alignment:stretch) {
-	align-self: $alignment;
-}
-
-@mixin flexOrder($order:0) {
-	$order-vendors: -webkit-box-ordinal-group,-moz-box-ordinal-group,-ms-flex-order,-webkit-order;
-  	@each $vendor in $order-vendors {
-        #{$vendor}: $order;
-    }
-  	order: $val;
-}
-
-/* ---------------------------------------------------------------------
- Flex Parent-Child Shorthand
------------------------------------------------------------------------- */
-@mixin flexParent($display:null,$values:row wrap) {
-    $display: if($display,$display,flex);
-	@include flexBox($display);
-    @include flexFlow($values);
-}
-
-// Flex options: none | $flex-grow $flex-shrink {optional} | $flex-basis
-@mixin flexChild($values:0 1 auto) {
-	$flex-vendors: -webkit-box-,-moz-box-,-webkit-,-ms-;
-    @each $vendor in $flex-vendors {
-        #{$vendor}flex: $values;
-    }
-    flex: $values;
-}
-
-/* ---------------------------------------------------------------------
- Flex / Grid Alignment (container > item)
- Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
------------------------------------------------------------------------- */
-// Alignment options: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe
-@mixin alignItems($alignment:stretch) {
-    $align-vendors: -webkit-box-align,-ms-flex-align,-webkit-align-items;
-    @each $vendor in $align-vendors {
-        #{$vendor}pack: $alignment;
-    }
-    align-items: $alignment;
-}
-
-// Alignment options: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe
-// Safest x-browser options: flex-start | flex-end | center
-@mixin justifyContent($alignment:normal) {
-    $justify-vendors: -webkit-box-, -moz-box-,-ms-flex-;
-    @each $vendor in $justify-vendors {
-        #{$vendor}pack: $alignment;
-    }
-    -webkit-justify-content: $alignment;
-    justify-content: $alignment;
-}
-
-/* ---------------------------------------------------------------------
- Grids
------------------------------------------------------------------------- */
-@mixin gridTmplCol($count,$width:null) {
-    display: grid;
-	grid-template-columns: repeat($count, 1fr);
-    width: if($width,$width,100%);
-}
-
-@mixin gridTmplRow($count,$width:null) {
-    display: grid;
-	grid-template-rows: repeat($count, 1fr);
-}
-
-/* ---------------------------------------------------------------------
- Box Decoration
------------------------------------------------------------------------- */
-@mixin boxShadow($hshadow,$vshadow,$blur,$spread,$color...) {
-    $shadow-vendors: -moz-box-, -webkit-box-;
-    @each $vendor in $shadow-vendors {
-    	#{$vendor}shadow: $hshadow $vshadow $blur $spread $color;
-    }
-   	box-shadow: $hshadow $vshadow $blur $spread $color;
-}
-
-@mixin boxShadowTop($vshadow,$blur,$spread,$color) {
-	$hshadow: 0;
-    $spread: -1 * $spread;
-    $vshadow: -1 * $vshadow;
-    @include boxShadow($hshadow,$vshadow,$blur,$spread,$color);
-}
-
-@mixin boxShadowBottom($vshadow,$blur,$spread,$color) {
-	$hshadow: 0;
-    $spread: -1 * $spread;
-    @include boxShadow($hshadow,$vshadow,$blur,$spread,$color);
-}
-
-@mixin boxShadowLeft($vshadow,$blur,$spread,$color) {
-	$hshadow: 0;
-    $vshadow: -1 * $vshadow;
-    @include boxShadow($hshadow,$vshadow,$blur,$spread,$color);
-}
-
-@mixin boxShadowInset($hshadow,$blur,$color) {
-    $vshadow: 0;
-    $spread: 0;
-    @include boxShadow($hshadow,$vshadow,$blur,$spread,$color inset);
-}
-
-/* ---------------------------------------------------------------------
  Calculations
  @include calc('width', '100% - value');
 ------------------------------------------------------------------------ */
@@ -170,27 +20,99 @@
 }
 
 /* ---------------------------------------------------------------------
+ Custom Input Field
+------------------------------------------------------------------------ */
+@mixin customInput() {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 2;
+
+    @media (hover: hover) {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------
+ Custom Scrollbar
+------------------------------------------------------------------------ */
+@mixin customScrollbar($colors...) {
+
+    $color-count: length($colors);
+    $color-thumb: if($color-count >= 1,nth($colors,1),null);
+    $color-track: if($color-count >= 2,nth($colors,2),null);
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: if($color-thumb,$color-thumb,transparent);
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: if($color-track,$color-track,transparent);
+    }
+
+}
+
+/* ---------------------------------------------------------------------
+ Gradient Fade
+------------------------------------------------------------------------ */
+@mixin gradientBox($gradient,$height) {
+    content: "";
+    background: $gradient;
+    width: 100%;
+    height: $height;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    left: 0;
+}
+
+@mixin gradientFade($direction:null,$height:null, $colors...) {
+
+    $direction: if($direction,$direction,'top');
+    $height: if($height,$height,8em);
+
+    // NOTE:  parent container should be positioned relatively
+    $color-count: length($colors);
+    $color-primary: if($color-count >= 1,nth($colors,1),#FFF);
+    $color-secondary: if($color-count >= 2,nth($colors,2),#FFF);
+    $gradient: linear-gradient($color-primary 0%,$color-secondary 70%,transparent 100%);
+
+    @if $direction == 'top' {
+        &::before {
+            @include gradientBox($gradient,$height);
+            top: 0;
+        }
+    }
+
+    @if $direction == 'bottom' {
+        &::after {
+            @include gradientBox($gradient,$height);
+            bottom: 0;
+            transform: rotate(180deg);
+        }
+    }
+           
+}
+
+/* ---------------------------------------------------------------------
  Positioning
 ------------------------------------------------------------------------ */
 @function strip-unit($num) {
     @return $num / ($num * 0 + 1);
-}
-@mixin positionIt($x,$y) {
-    $vendors: -webkit-,-moz-,-ms-input-,-o-;
-    $x: strip-unit($x);
-    $y: strip-unit($y);
-    $left: $x*1%;
-    $top: $y*1%;
-    position: absolute;
-    left: $left;
-    top: $top;
-
-    $translate: translateX($left*-1) translateY($top*-1);
-
-    @each $vendor in $vendors {
-       #{$vendor}transform: $translate;
-    }
-    transform: $translate;
 }
 
 /* ---------------------------------------------------------------------
@@ -218,85 +140,4 @@
     -webkit-animation: #{$str};
     animation: #{$str};
 }
-
-/* ---------------------------------------------------------------------
- Background Extensions
------------------------------------------------------------------------- */
-@mixin bgExtension($bg-color) {
-	&::after {
-		content: '';
-		left: 100%;
-		position: absolute;
-		top: 0;
-		z-index: 1;
-		height: 100%;
-		width: 200%;
-		background: $bg-color;
-	}
-}
-
-@mixin bgInterlude($bg-color,$sm-height,$lg-height) {
-	&::before {
-		content: '';
-        height: 28vw;
-		left: 0;
-		position: absolute;
-		top: 28vw * -1;
-		z-index: 2; // precendent over bgExtension
-		width: 100%; // extend well past viewport
-		background: $bg-color;
-        
-        @media screen and (min-width: map-get($breakpoints,'lg')) {
-            height: 25vw;
-            top: 25vw * -1;
-        }
-
-        @media screen and (min-width: map-get($breakpoints,'xl')) {
-            height: 22vw;
-            top: 22vw * -1;
-        }
-
-        @media screen and (min-width: map-get($breakpoints,'xxl')) {
-            height: 19vw;
-            top: 19vw * -1;
-        }
-
-	}
-}
-
-
-/* ---------------------------------------------------------------------
- Flair
------------------------------------------------------------------------- */
-@mixin slideFlair($slide:20%,$delay:0.08s) {
-    $timing: ease;
-    // $transition: $prop $duration $timing $delay;
-    
-    @media screen and (min-width: map-get($breakpoints,'xl'))  {
-        // Fade in and slide up
-        opacity: 1;
-        transform: translateY(0);
-        // Transition values
-        transition-property: transform,opacity;
-        transition-timing-function: ease;
-        transition-duration: 1.1s;
-        transition-delay: $delay;
-
-        &._is-loading {
-            //opacity: 0;
-            opacity: 0.01; // help with Lighthouse
-            transform: translateY($slide);
-        }
-
-    }
-
-}
-
-@mixin loadImage($ratio:3/2) {
-    position: relative;
-    // placeholder
-    aspect-ratio: $ratio;
-    background-color: var(--bg-color);
-}
-
 
