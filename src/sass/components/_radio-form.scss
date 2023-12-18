@@ -34,13 +34,13 @@
             transition: $palette-transition;
 
             #{$selector}-input:checked ~ & {
-                background: getColor('black');
+                background: getColor('brick');
                 color: getColor('white');
             }
 
             @media (hover: hover) {
                 #{$selector}-field:hover & {
-                    background: getColor('black');
+                    background: getColor('brick');
                     color: getColor('white');
                 }
             }

@@ -82,7 +82,7 @@
 	}
 
 	&-submit {
-        $bg: getColor('lake');
+        $bg: getColor('brick');
 		@include globalButton($bg);
 		align-items: center;
 		font-size: 1.2rem;
@@ -280,7 +280,6 @@
     &-title {
         @include getType('h3');
         margin-bottom: 1em;
-        font-weight: 400;
 
         a:link,
         a:visited,

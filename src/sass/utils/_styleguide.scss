@@ -40,18 +40,18 @@ $text-map: (
 	// Active
 	"h1": (
 		"sm": (
-			font: 3em/109% $font-primary,
+			font: 2em/109% $font-tertiary,
 			font-weight: 200,
 			letter-spacing: 0.01em,
 		),
 		"lg": (
-			font-size: 3em
+			font-size: 2em
 		),
 	),
 	"h2": (
 		"sm": (
 			font: 2em/136% $font-tertiary,
-			font-weight: 300,
+			font-weight: 600,
 			letter-spacing: 0.025em
 		),
 		"lg": (
@@ -61,7 +61,7 @@ $text-map: (
 	"h3": (
 		"sm": (
 			font: 1.6em/136% $font-tertiary,
-			font-weight: 300,
+			font-weight: 600,
 			letter-spacing: 0.025em
 		),
 		"lg": (
@@ -71,7 +71,7 @@ $text-map: (
 	"h4": (
 		"sm": (
 			font: 1.4em/136% $font-tertiary,
-			font-weight: 300,
+			font-weight: 600,
 			letter-spacing: 0.025em
 		),
 		"lg": (
@@ -81,7 +81,7 @@ $text-map: (
 	"h5": (
 		"sm": (
 			font: 1.4em/136% $font-tertiary,
-			font-weight: 300,
+			font-weight: 600,
 			letter-spacing: 0.025em
 		),
 		"lg": (
@@ -100,7 +100,7 @@ $text-map: (
 	),
 	"p1-std": (
 		"sm": (
-			font: 1.4em/136% $font-tertiary,
+			font: 1.4em/136% $font-secondary,
 			font-weight: 300,
 			letter-spacing: 0.025em
 		),
@@ -110,7 +110,7 @@ $text-map: (
 	),
 	"p1-detail": (
 		"sm": (
-			font: 1em/136% $font-tertiary,
+			font: 1em/136% $font-secondary,
 			font-weight: 300,
 			letter-spacing: 0.025em
 		),
@@ -277,7 +277,7 @@ $slide-transition: transform .5s;
 	@media (hover: hover) {
 		&:hover  {
 			cursor: pointer;
-			background: getColor('lake');
+			background: getColor('brick');
 			color: getColor('white');
 			transition: $palette-transition;
 
@@ -307,24 +307,24 @@ $slide-transition: transform .5s;
     &:visited,
     &:hover,
     &:active {
-        color: getColor('lake');
+        color: getColor('brick');
         text-decoration-thickness: 1px;
         text-underline-offset: 5px;
     }
 }
 
 @mixin actionLabel() {
-    color: getColor('lake');
+    color: getColor('brick');
     text-decoration: underline;
     text-decoration-thickness: 1px;
-    text-decoration-color: getColor('lake');
+    text-decoration-color: getColor('brick');
     text-underline-offset: 5px;
 }
 
 @mixin actionHover() {   
-    background: getColor('lake');
+    background: getColor('brick');
     color: getColor('white');
-    outline: 6px solid getColor('lake');
+    outline: 6px solid getColor('brick');
 
     svg {
         fill: getColor('white');
