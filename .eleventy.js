@@ -12,7 +12,7 @@ module.exports = (eleventyConfig) => {
     linkify: true
   };
   eleventyConfig.addPlugin(EleventyRenderPlugin);
-  eleventyConfig.setLibrary('md', markdownIt(options));
+  // eleventyConfig.setLibrary('md', markdownIt(options));
   // Fonts
   eleventyConfig.addPassthroughCopy('src/fonts');
   // Styles
@@ -39,14 +39,16 @@ module.exports = (eleventyConfig) => {
       }
   });
 
-
-
+  eleventyConfig.addNunjucksFilter('makeList', async function(value) {
+    value.split(',');
+    return value;
+  });
       
-    return {
-      dir: {
-        output: "public",
-        input: "src"
-      },
-    };
+  return {
+    dir: {
+      output: "public",
+      input: "src"
+    },
+  };
 
 };

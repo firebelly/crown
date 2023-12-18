@@ -171,14 +171,12 @@
 /* ---------------------------------------------------------------------
   Modal
 ------------------------------------------------------------------------ */
-@include modal('.programModal');
-@include modal('.studentModal');
-@include modal('.instructorModal');
+@include modal('.filterModal');
 @include radioList('.programList');
-@include radioList('.instructorList');
+@include radioList('.criteriaList');
 
 .programList,
-.instructorList {
+.criteriaList {
 	$gradient-height: 8em;
 
 	&-wrap {
@@ -218,22 +216,17 @@
 }
 
 .instructorModal {
-
 	&-content {
 		min-width: 500px;
 	}
 }
 
-.instructorList {
-
+.filterList {
+	max-height: 400px;
+    overflow-y: scroll;
+	
 	&-buttons {
-		@include globalButtonPair('.instructorList');
-	}
-}
-
-.studentList {
-	&-buttons {
-		@include globalButtonPair('.studentList');
+		@include globalButtonPair('.filterList');
 	}
 }
 

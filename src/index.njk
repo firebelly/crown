@@ -1,9 +1,11 @@
 ---
 title: Crown Family School
 layout: "base.njk"
-data: organizationList, dataTranslator
+data: organizationList, dataTranslator, studentList, instructorList, populationList
 --- 
 {% import "./_includes/macros/card.njk" as card %}
+{% import "./_includes/macros/result.njk" as result %}
+{% import './_includes/macros/filters.njk' as filter %}
 
 <form 
     action="" 
@@ -22,8 +24,21 @@ data: organizationList, dataTranslator
         <p class="searchForm-instructions">Select as few or as many criteria to refine search results.</p>
 
         <div class="searchForm-wrap searchForm-wrap--secondary">
-            {% include 'fieldsets/students.njk' %}
-            {% include 'fieldsets/instructors.njk' %}
+            {% set filter_types = [
+                {'slug':'students','title': 'Students','hook':'student','data': studentList,'type':'checkbox'},
+                {'slug':'instructors','title':'Instructors','hook':'instructor','data': instructorList,'type':'radio'},
+                {'slug':'population','title':'Population','hook':'population','data': populationList, 'type': 'checkbox'}
+            ] %}
+            {# 
+            {'slug':'population','title':'Population','hook':'population'},
+            {'slug':'clinical','title':'Clinical','hook':'clinical'},
+            {'slug':'social','title':'Social','hook':'social'} 
+            #}
+        
+            {% for filter_obj in filter_types %}
+                {{ filter.checkbox_fieldset(filter_obj) }}
+            {% endfor %}
+        
         </div>
     
     </div>
@@ -61,11 +76,11 @@ data: organizationList, dataTranslator
     class="searchResults"
     data-search-filters="results">
 
-    <h2 class="searchResults-count">Showing 11 Results</h2>
+    <h2 class="searchResults-count">Showing {{ organizationList|length }} Results</h2>
 
     <div class="searchResults-container">
         {% for org in organizationList %}
-            {{ card.excerpt(org,dataTranslator) }}
+            {{ result.item(org,'excerpt',dataTranslator) }}
         {% endfor %}
     </div>
 </div>

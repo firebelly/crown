@@ -8,14 +8,18 @@ const currentState = new appState();
 
 const searchPage = new searchFilters();
 
-const programModal = new modalDialog({
-    _id: 'programModal'
-});
+// const programModal = new modalDialog({
+//     _id: 'programModal'
+// });
 
-const studentModal = new modalDialog({
-    _id: 'studentModal'
-});
+// const studentModal = new modalDialog({
+//     _id: 'studentModal'
+// });
 
-const instructorModal = new modalDialog({
-    _id: 'instructorModal'
+// const instructorModal = new modalDialog({
+//     _id: 'instructorModal'
+// });
+
+const filterModal = new modalDialog({
+    _hook: 'modal'
 });

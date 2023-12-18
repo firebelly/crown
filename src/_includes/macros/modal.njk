@@ -35,21 +35,23 @@ Example modal trigger:
 #}
 {%- macro modal(params) -%}
 {% set selector = params.selector %}
-{% set content = params.content %}
-{% set search = params.search %}
+{% set id       = params.id %}
+{% set content  = params.content %}
+{% set search   = params.search %}
 <div 
     class="{{ selector }}-dialog"
-    id="{{ selector }}_dialog"
-    aria-labelledby="{{ selector }}_dialog_title"
-    aria-hidden="true">
+    id="{{ id }}_dialog"
+    aria-labelledby="{{ id }}_dialog_title"
+    aria-hidden="true"
+    data-modal="{{ id }}">
     <div 
         class="{{ selector }}-overlay" 
-        data-a11y-dialog-hide="{{ selector }}_dialog">
+        data-a11y-dialog-hide="{{ id }}_dialog">
     </div>
     
     <div 
         class="{{ selector }}-content" 
-        id="{{ selector }}_content" 
+        id="{{ id }}_content" 
         role="document"
         {% if search %}
         data-modal-search="form"
@@ -61,7 +63,7 @@ Example modal trigger:
                 class="{{ selector }}-trigger {{ selector }}-trigger--close" 
                 role="button" 
                 type="button" 
-                data-a11y-dialog-hide="{{ selector }}_dialog" 
+                data-a11y-dialog-hide="{{ id }}_dialog" 
                 aria-label="Close dialog"
                 {% if search %}
                 data-modal-search="apply"
