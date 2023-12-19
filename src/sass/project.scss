@@ -134,12 +134,26 @@ img {
   Shell	
 ------------------------------------------------------------------------ */
 .primaryHeader {
+	display: flex;
 	padding: 2em 0;
-	background: getColor('greystone');
+	background: getColor('brick');
+	align-items: center;
+	justify-content: center;
+
+	> * {
+		flex: 0 1 50%;
+	}
+	
+	&-logo {
+		max-width: 400px;
+		padding-right: 2em;
+	}
 
 	&-title {
 		@include getType('h1');
+		color: getColor('white');
 		font-weight: 400;
+		text-transform: uppercase;
 		text-align: center;
 	}
 }

@@ -28,57 +28,41 @@ $breakpoints: (
 		$local-path: '#{$filename}';
 
 		font-display: swap;
-		font-family: $fontname;
+		font-family: #{$fontname};
 		font-style: $style;
 		font-weight: $weight;
-		src: local('#{$local-path}.woff2'), url('#{$downloadable-path}.woff2') format('woff2');
+		src: local('#{$local-path}.ttf'), url('#{$downloadable-path}.ttf') format('truetype'),
+			 local('#{$local-path}.woff2'), url('#{$downloadable-path}.woff2') format('woff2');
 	}
 }
 
 // Define project fonts
-$primary-name: 'The Future Mono';
-$primary-file: 'the-future-mono-extralight';
-$primary-serif: 'sans-serif'; 
+$primary-name: 'Garamond Pro Regular';
+$primary-file: 'Garamond-Pro-Regular';
+$primary-serif: 'serif'; 
 
-$secondary-name: 'The Future Mono';
-$secondary-file: 'the-future-mono-light';
+$secondary-name: 'Gotham Light';
+$secondary-file: 'Gotham-Light';
 $secondary-serif: 'sans-serif';
 
-$tertiary-name: 'The Future';
-$tertiary-file: 'the-future-regular';
+$tertiary-name: 'Gotham Book';
+$tertiary-file: 'Gotham-Book';
 $tertiary-serif: 'sans-serif';
 
-$quaternary-name: 'The Future';
-$quaternary-file: 'the-future-bold';
-$quaternary-file-italic: 'the-future-bold-italic';
-$quaternary-serif: 'sans-serif';
+$primary-dir: 'Garamond';
+$secondary-dir: 'Gotham-Light';
+$tertiary-dir: 'Gotham-Book';
 
-$quinary-name: 'The Future';
-$quinary-file: 'the-future-light';
-$quinary-file-italic: 'the-future-light-italic';
-$quinary-serif: 'sans-serif';
-
-$future-dir: 'the-future';
-
-// The Future Mono Extralight
-@include getFont($primary-name, $future-dir, $primary-file, normal, 200);
-// The Future Mono Light
-@include getFont($secondary-name, $future-dir, $secondary-file, normal, 300);
-// The Future Regular
-@include getFont($tertiary-name, $future-dir, $tertiary-file, normal, 400);
-// The Future Bold
-@include getFont($quaternary-name, $future-dir, $quaternary-file, normal, 700);
-// The Future Bold Italic
-@include getFont($quaternary-name, $future-dir, $quaternary-file-italic, italic, 700);
-// The Future Light
-@include getFont($quinary-name, $future-dir, $quinary-file, normal, 300);
-// The Future Italic
-@include getFont($quinary-name, $future-dir, $quinary-file-italic, italic, 300);
+// Garamond
+@include getFont($primary-name, $primary-dir, $primary-file, normal, 200);
+// Gotham Light
+@include getFont($secondary-name, $secondary-dir, $secondary-file, normal, 300);
+// Gotham Book
+@include getFont($tertiary-name, $tertiary-dir, $tertiary-file, normal, 600);
 
 $font-primary: $primary-name, $primary-serif;
 $font-secondary: $secondary-name, $secondary-serif;
 $font-tertiary: $tertiary-name, $tertiary-serif;
-$font-quaternary: $quaternary-name, $quaternary-serif;
 
 
 /* ---------------------------------------------------------------------
@@ -101,7 +85,7 @@ $palettes: (
 		core: #800000
 	),
 	'brick': (
-		core: #A4343A,
+		core: #800000,// #A4343A,
 		10: #B46A55,
 		20: #643335
 	),

@@ -1,0 +1,242 @@
+[
+    {
+      "SERVICES_ID": 33,
+      "DESCRIPTION": "Administration (top level positions)"
+    },
+    {
+      "SERVICES_ID": 29,
+      "DESCRIPTION": "Chemical Dependence"
+    },
+    {
+      "SERVICES_ID": 51,
+      "DESCRIPTION": "Chemical Dependence"
+    },
+    {
+      "SERVICES_ID": 3,
+      "DESCRIPTION": "Child and Adolescent Programs"
+    },
+    {
+      "SERVICES_ID": 37,
+      "DESCRIPTION": "Child Welfare"
+    },
+    {
+      "SERVICES_ID": 4,
+      "DESCRIPTION": "Child Welfare (adoption, foster care)"
+    },
+    {
+      "SERVICES_ID": 109,
+      "DESCRIPTION": "Children & Youth(psychosocial, voc. rec)"
+    },
+    {
+      "SERVICES_ID": 32,
+      "DESCRIPTION": "Clinical - Other"
+    },
+    {
+      "SERVICES_ID": 73,
+      "DESCRIPTION": "Community Schools"
+    },
+    {
+      "SERVICES_ID": 110,
+      "DESCRIPTION": "Corrections/Criminal Justice"
+    },
+    {
+      "SERVICES_ID": 15,
+      "DESCRIPTION": "Corrections/Criminal Justice"
+    },
+    {
+      "SERVICES_ID": 5,
+      "DESCRIPTION": "Developmental Disabilities"
+    },
+    {
+      "SERVICES_ID": 6,
+      "DESCRIPTION": "Divinity Placements"
+    },
+    {
+      "SERVICES_ID": 39,
+      "DESCRIPTION": "Divinity Placements"
+    },
+    {
+      "SERVICES_ID": 59,
+      "DESCRIPTION": "Domestic Violence"
+    },
+    {
+      "SERVICES_ID": 22,
+      "DESCRIPTION": "Domestic Violence"
+    },
+    {
+      "SERVICES_ID": 8,
+      "DESCRIPTION": "Family Service"
+    },
+    {
+      "SERVICES_ID": 9,
+      "DESCRIPTION": "Family Support"
+    },
+    {
+      "SERVICES_ID": 10,
+      "DESCRIPTION": "Gay, Lesbian, Bisexual and Transgender"
+    },
+    {
+      "SERVICES_ID": 62,
+      "DESCRIPTION": "Gay, Lesbian, Bisexual, and Transgender"
+    },
+    {
+      "SERVICES_ID": 40,
+      "DESCRIPTION": "Government (elected bodies, not agencies)"
+    },
+    {
+      "SERVICES_ID": 41,
+      "DESCRIPTION": "Health"
+    },
+    {
+      "SERVICES_ID": 16,
+      "DESCRIPTION": "Health"
+    },
+    {
+      "SERVICES_ID": 12,
+      "DESCRIPTION": "HIV/AIDS"
+    },
+    {
+      "SERVICES_ID": 63,
+      "DESCRIPTION": "HIV/AIDS"
+    },
+    {
+      "SERVICES_ID": 26,
+      "DESCRIPTION": "Homeless Shelters"
+    },
+    {
+      "SERVICES_ID": 61,
+      "DESCRIPTION": "Homelessness"
+    },
+    {
+      "SERVICES_ID": 54,
+      "DESCRIPTION": "Homelessness"
+    },
+    {
+      "SERVICES_ID": 13,
+      "DESCRIPTION": "Hospices"
+    },
+    {
+      "SERVICES_ID": 11,
+      "DESCRIPTION": "Hospitals/Medical"
+    },
+    {
+      "SERVICES_ID": 30,
+      "DESCRIPTION": "Hospitals/Psychiatric"
+    },
+    {
+      "SERVICES_ID": 64,
+      "DESCRIPTION": "Housing"
+    },
+    {
+      "SERVICES_ID": 72,
+      "DESCRIPTION": "Immigrants and Refugees"
+    },
+    {
+      "SERVICES_ID": 56,
+      "DESCRIPTION": "Immigrants and Refugees"
+    },
+    {
+      "SERVICES_ID": 101,
+      "DESCRIPTION": "International"
+    },
+    {
+      "SERVICES_ID": 102,
+      "DESCRIPTION": "International"
+    },
+    {
+      "SERVICES_ID": 85,
+      "DESCRIPTION": "Juvenile Justice"
+    },
+    {
+      "SERVICES_ID": 80,
+      "DESCRIPTION": "Juvenile Justice"
+    },
+    {
+      "SERVICES_ID": 68,
+      "DESCRIPTION": "Legal"
+    },
+    {
+      "SERVICES_ID": 14,
+      "DESCRIPTION": "Legal Social Work (legal aid clinic)"
+    },
+    {
+      "SERVICES_ID": 57,
+      "DESCRIPTION": "Medical (non-hospital)"
+    },
+    {
+      "SERVICES_ID": 31,
+      "DESCRIPTION": "Mental Health"
+    },
+    {
+      "SERVICES_ID": 106,
+      "DESCRIPTION": "Military Social Work"
+    },
+    {
+      "SERVICES_ID": 108,
+      "DESCRIPTION": "Military Social Work"
+    },
+    {
+      "SERVICES_ID": 7,
+      "DESCRIPTION": "Occupational Social Work"
+    },
+    {
+      "SERVICES_ID": 17,
+      "DESCRIPTION": "Older Adult"
+    },
+    {
+      "SERVICES_ID": 58,
+      "DESCRIPTION": "Older Adult"
+    },
+    {
+      "SERVICES_ID": 97,
+      "DESCRIPTION": "Older Adults Hartford Fellowship"
+    },
+    {
+      "SERVICES_ID": 99,
+      "DESCRIPTION": "Older Adults Hartford Fellowship"
+    },
+    {
+      "SERVICES_ID": 18,
+      "DESCRIPTION": "Partial Hospitalization Programs"
+    },
+    {
+      "SERVICES_ID": 95,
+      "DESCRIPTION": "Poverty and Inequality"
+    },
+    {
+      "SERVICES_ID": 82,
+      "DESCRIPTION": "Poverty and Inequality"
+    },
+    {
+      "SERVICES_ID": 27,
+      "DESCRIPTION": "Private Practice"
+    },
+    {
+      "SERVICES_ID": 25,
+      "DESCRIPTION": "Rehabilitation"
+    },
+    {
+      "SERVICES_ID": 67,
+      "DESCRIPTION": "Rehabilitation"
+    },
+    {
+      "SERVICES_ID": 19,
+      "DESCRIPTION": "Residential Treatment Centers/Adults"
+    },
+    {
+      "SERVICES_ID": 20,
+      "DESCRIPTION": "Residential Treatment Centers/Children"
+    },
+    {
+      "SERVICES_ID": 21,
+      "DESCRIPTION": "Schools"
+    },
+    {
+      "SERVICES_ID": 115,
+      "DESCRIPTION": "Trauma"
+    },
+    {
+      "SERVICES_ID": 53,
+      "DESCRIPTION": "Youth"
+    }
+]

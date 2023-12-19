@@ -1,0 +1,136 @@
+{# Filter Types: Checkbox Buttons #}
+{%- macro checkbox_fieldset(filter_obj) -%}
+{%- from 'macros/checkbox-buttons.njk' import checkbox %}
+{%- from 'macros/radio-list.njk' import radio %}
+
+{% set filter_slug  = filter_obj.slug %}
+{% set filter_title = filter_obj.title %}
+{% set filter_hook  = filter_obj.hook %}
+{% set filter_data  = filter_obj.data %}
+{% set filter_type  = filter_obj.type %}
+
+{% set checkboxContent = [] %}
+
+{# STUDENTS #}
+{% if filter_slug == 'students' %}
+{% for item in filter_data %}
+    {% set slug = item.slug %}
+    {% set label = item.label %}
+
+    {% set checkboxContent = (checkboxContent.push({
+        slug: slug,
+        label: label
+    }), checkboxContent) %}
+{% endfor %}
+{% endif %}
+
+{# SERVICES FIELDSETS: POPULATION, CLINICAL, SOCIAL #}
+{% if filter_slug == 'population' or filter_slug == 'clinical' or filter_slug == 'social' %}
+{% for item in filter_data %}
+    {% set slug  = item.SERVICES_ID %}
+    {% set label = item.DESCRIPTION %}
+    {# we need to carefully construct the service id checkboxes #}
+    {% set checkboxContent = (checkboxContent.push({
+        id: 'services_id_' ~ slug,
+        label: label,
+        name: 'services_id',
+        slug: slug
+    }), checkboxContent) %}
+{% endfor %}
+{% endif %}
+
+{# INSTRUCTORS #}
+{% if filter_slug == 'instructors' %}
+    {% set sortedList = [] %}
+    {% for instructor in filter_data|sort(false, true, 'personnel_last_name') %}
+        {% set name = instructor.personnel_first_name + " " + instructor.personnel_last_name %}
+        {% set slug   = name|slug %}
+        {% set sortedList = (sortedList.push({
+            label: name,
+            id: slug
+        }), sortedList) %}
+    {% endfor %}
+{% endif %}
+
+<div class="searchForm-fieldset">
+            
+    <button 
+        class="searchForm-trigger searchForm-trigger--alt" 
+        data-a11y-dialog-show="{{ filter_hook }}Modal_dialog"
+        type="button">
+        <span>Filter By {{ filter_title }} Type</span>
+        {% include 'src/assets/svgs/icon-expand.svg' %}
+    </button>
+
+    {% set modalContent %}
+
+        {# CHECKBOX #}
+        {% if filter_type == 'checkbox' %}
+        {{ checkbox({ 
+            selector: "filterList",
+            id: filter_slug,
+            legend: "Filter By " ~ filter_title ~ " Type", 
+            instructions: "Select as few or as many " ~ filter_hook ~ " types to filter your results.",
+            content: checkboxContent,
+            modal: true
+        }) }}
+
+        <div class="filterList-buttons">
+            <button 
+                class="filterList-action filterList-action--alt" 
+                data-modal-search="clear"
+                type="button">
+                <span class="filterList-action-label">Clear</span>
+            </button>
+            <button 
+                class="filterList-action" 
+                data-a11y-dialog-hide="{{ filter_hook }}Modal_dialog" 
+                aria-label="Close dialog"
+                data-modal-search="apply"
+                type="button">
+                    <span class="filterList-action-label">Apply</span>
+                    {% include 'src/assets/svgs/icon-arrow-right.svg' %}
+                </button>
+        </div>
+        {% endif %}
+        {# RADIO #}
+        {% if filter_type == 'radio' %}
+            {{ radio({ 
+                selector: "criteriaList",
+                legend: "Select an " ~ filter_title ~ " to filter results", 
+                group: filter_hook ~ "_name",
+                content: sortedList,
+                modal: true
+            }) }}
+
+            <div class="filterList-buttons">
+                <button 
+                    class="filterList-action filterList-action--alt" 
+                    data-modal-search="clear"
+                    type="button">
+                    <span class="filterList-action-label">Clear</span>
+                </button>
+                <button 
+                    class="filterList-action" 
+                    data-a11y-dialog-hide="{{ filter_hook }}Modal_dialog" 
+                    aria-label="Close dialog"
+                    data-modal-search="apply"
+                    type="button">
+                        <span class="filterList-action-label">Apply</span>
+                        {% include 'src/assets/svgs/icon-arrow-right.svg' %}
+                    </button>
+            </div>
+        {% endif %}
+
+    {% endset %}
+
+    {%- from 'macros/modal.njk' import modal %}
+    {{ modal({ 
+        selector: "filterModal", 
+        id: filter_hook ~ "Modal", 
+        content: modalContent,
+        search: filter_slug
+    }) }}
+    
+</div>
+{%- endmacro -%}
