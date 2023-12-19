@@ -29,7 +29,6 @@ data: dataTranslator, studentList, instructorList, populationList, clinicalList,
         <div class="searchForm-wrap searchForm-wrap--secondary">
             {% set filter_types = [
                 {'slug':'students','title': 'Students','hook':'student','data': studentList,'type':'checkbox'},
-                {'slug':'instructors','title':'Instructors','hook':'instructor','data': instructorList,'type':'radio'},
                 {'slug':'population','title':'Population','hook':'population','data': populationList, 'type': 'checkbox'},
                 {'slug':'clinical','title':'Clinical','hook':'clinical','data': clinicalList, 'type': 'checkbox'},
                 {'slug':'social','title':'Social','hook':'social','data': socialList, 'type': 'checkbox'} 
