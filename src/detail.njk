@@ -5,9 +5,9 @@ pagination:
     data: organizationList
     size: 1
     alias: org
-permalink: "detail/{{ org.PROGRAM_ID }}/"
-data: dataTranslator
+permalink: "program/detail/{{ org.PROGRAM_ID }}/"
+data: dataTranslator, populationList, clinicalList
 --- 
 {% import "./_includes/macros/result.njk" as result %}
 
-{{ result.item(org,'detail',dataTranslator) }}
+{{ result.item(org,'detail',dataTranslator,populationList) }}

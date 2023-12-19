@@ -1,9 +1,14 @@
 ---
 title: Crown Family School
 layout: "base.njk"
-data: organizationList, dataTranslator, studentList, instructorList, populationList
+pagination:
+  data: organizationList
+  size: 30
+  alias: programs  
+
+permalink: "program/search/page-{{ pagination.pageNumber + 1 }}/index.html"
+data: dataTranslator, studentList, instructorList, populationList, clinicalList, socialList
 --- 
-{% import "./_includes/macros/card.njk" as card %}
 {% import "./_includes/macros/result.njk" as result %}
 {% import './_includes/macros/filters.njk' as filter %}
 
@@ -17,23 +22,18 @@ data: organizationList, dataTranslator, studentList, instructorList, populationL
         {% include 'fieldsets/organizations.njk' %}
     </div>
 
-    <hr class="searchForm-rule" />
-
-    <div class="searchForm-fieldset">
+    <div class="searchForm-fieldset searchForm-fieldset--container">
         <h3 class="searchForm-legend">Filter Results By Criteria</h3>
-        <p class="searchForm-instructions">Select as few or as many criteria to refine search results.</p>
+        <p class="searchForm-instructions">Select as few or as many criteria to further refine search results.</p>
 
         <div class="searchForm-wrap searchForm-wrap--secondary">
             {% set filter_types = [
                 {'slug':'students','title': 'Students','hook':'student','data': studentList,'type':'checkbox'},
                 {'slug':'instructors','title':'Instructors','hook':'instructor','data': instructorList,'type':'radio'},
-                {'slug':'population','title':'Population','hook':'population','data': populationList, 'type': 'checkbox'}
+                {'slug':'population','title':'Population','hook':'population','data': populationList, 'type': 'checkbox'},
+                {'slug':'clinical','title':'Clinical','hook':'clinical','data': clinicalList, 'type': 'checkbox'},
+                {'slug':'social','title':'Social','hook':'social','data': socialList, 'type': 'checkbox'} 
             ] %}
-            {# 
-            {'slug':'population','title':'Population','hook':'population'},
-            {'slug':'clinical','title':'Clinical','hook':'clinical'},
-            {'slug':'social','title':'Social','hook':'social'} 
-            #}
         
             {% for filter_obj in filter_types %}
                 {{ filter.checkbox_fieldset(filter_obj) }}
@@ -43,44 +43,45 @@ data: organizationList, dataTranslator, studentList, instructorList, populationL
     
     </div>
 
-    <hr class="searchForm-rule searchForm-rule--alt" />
-
     <div class="searchForm-criteria">
-        <p class="searchForm-criteria-title">You are searching by:</p>
-        <ul class="searchForm-criteria-wrap" data-search-filters="criteria">
+        <p class="searchForm-legend">You are filtering by:</p>
+        <ul class="searchForm-instructions searchForm-criteria-list" data-search-filters="criteria">
             <li class="searchForm-criteria-li" data-search-criteria="all">All Organizations</li>
         </ul>
-    </div>
 
-    <div class="searchForm-buttons">
-        <button
-            class="searchForm-submit"
-            data-search-filters="submit" 
-            type="submit">
-            <span class="searchForm-submit-label">Show Results</span>
-            {% include 'src/assets/svgs/icon-arrow-down.svg' %}
-        </button>
-        <button
-            class="searchForm-submit searchForm-submit--clear"
-            data-search-filters="clear" 
-            type="submit">
-            <span class="searchForm-submit-label">Clear Filters</span>
-        </button>
+        <div class="searchForm-buttons">
+            <button
+                class="searchForm-submit"
+                data-search-filters="submit" 
+                type="submit">
+                <span class="searchForm-submit-label">Get Results</span>
+                {% include 'src/assets/svgs/icon-arrow-down.svg' %}
+            </button>
+            <button
+                class="searchForm-submit searchForm-submit--clear"
+                data-search-filters="clear" 
+                type="submit">
+                <span class="searchForm-submit-label">Clear Filters</span>
+            </button>
+        </div>
     </div>
 
 </form>
 
-{# _is-inactive #}
 <div 
     id="searchResults" 
     class="searchResults"
     data-search-filters="results">
 
-    <h2 class="searchResults-count">Showing {{ organizationList|length }} Results</h2>
+    {% set pageCount = pagination.pages.length %}
+    <h2 class="searchResults-count">Showing {{ programs|length }} Results of {{ pageCount }} {% if pageCount > 1 %}Pages{% else %}Page{% endif %}</h2>
 
     <div class="searchResults-container">
-        {% for org in organizationList %}
-            {{ result.item(org,'excerpt',dataTranslator) }}
-        {% endfor %}
+    {% for org in programs %}
+        {{ result.item(org,'excerpt',dataTranslator) }}
+    {% endfor %}
     </div>
+
+    {% include 'partials/_pagination.njk' %}
+    
 </div>

@@ -39,9 +39,9 @@ module.exports = (eleventyConfig) => {
       }
   });
 
-  eleventyConfig.addNunjucksFilter('makeList', async function(value) {
-    value.split(',');
-    return value;
+  eleventyConfig.addFilter('makeList', function(value, delimiter = ',') {
+    const newValue = value.split(',');
+    return newValue;
   });
       
   return {

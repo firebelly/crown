@@ -36,20 +36,25 @@ Example instantiation:
     <p class="searchForm-instructions">{{ instructions }}</p>
     <ul class="{{ selector }} {{ selector }}--buttons">
     {% for i in contentList %}
-        {% set slug = i.slug %}
-        {% set label = i.label %}
+        {% set slug    = i.slug %}
+        {% set label   = i.label %}
+        {% set hasId   = ('id' in i) %}
+        {% set hasName = ('name' in i) %}
         <li class="{{ selector }}-item">
             <input 
-                id="{{ slug }}"
+                id="{% if hasId %}{{ i.id }}{% else %}{{ slug }}{% endif %}"
                 class="{{ selector }}-input"
-                name="{{ slug }}"
+                name="{% if hasName %}{{ i.name }}[]{% else %}{{ slug }}{% endif %}"
+                {% if hasId and hasName %}
+                value="{{ slug }}"
+                {% endif %}
                 {% if modal %}
                 data-modal-search="trigger"
                 {% endif %}
                 type="checkbox" />
             <label 
                 class="{{ selector }}-action"
-                for="{{ slug }}">
+                for="{% if hasId %}{{ i.id }}{% else %}{{ slug }}{% endif %}">
                 <span class="{{ selector }}-action-label">{{ label }}</span>
                 {% include 'src/assets/svgs/icon-close.svg' %}
             </label>

@@ -1,0 +1,86 @@
+[
+    {
+      "SERVICES_ID": 34,
+      "DESCRIPTION": "Advocacy"
+    },
+    {
+      "SERVICES_ID": 49,
+      "DESCRIPTION": "Children & Youth(psychosocial, voc. rec)"
+    },
+    {
+      "SERVICES_ID": 78,
+      "DESCRIPTION": "Community Development"
+    },
+    {
+      "SERVICES_ID": 35,
+      "DESCRIPTION": "Community Economic Development"
+    },
+    {
+      "SERVICES_ID": 36,
+      "DESCRIPTION": "Community Organizing"
+    },
+    {
+      "SERVICES_ID": 77,
+      "DESCRIPTION": "Community Planning"
+    },
+    {
+      "SERVICES_ID": 69,
+      "DESCRIPTION": "Consulting"
+    },
+    {
+      "SERVICES_ID": 114,
+      "DESCRIPTION": "Education"
+    },
+    {
+      "SERVICES_ID": 38,
+      "DESCRIPTION": "Family Support"
+    },
+    {
+      "SERVICES_ID": 113,
+      "DESCRIPTION": "Kiphart"
+    },
+    {
+      "SERVICES_ID": 42,
+      "DESCRIPTION": "Legislative Affairs and Lobbying"
+    },
+    {
+      "SERVICES_ID": 45,
+      "DESCRIPTION": "Philanthropy, Fund Raising, Development"
+    },
+    {
+      "SERVICES_ID": 46,
+      "DESCRIPTION": "Planning"
+    },
+    {
+      "SERVICES_ID": 47,
+      "DESCRIPTION": "Policy"
+    },
+    {
+      "SERVICES_ID": 43,
+      "DESCRIPTION": "Prevention and Education"
+    },
+    {
+      "SERVICES_ID": 44,
+      "DESCRIPTION": "Program Planning, Development, & Evaluation"
+    },
+    {
+      "SERVICES_ID": 50,
+      "DESCRIPTION": "Public Assistance/Welfare"
+    },
+    {
+      "SERVICES_ID": 48,
+      "DESCRIPTION": "Research & Evaluation (purely research)"
+    },
+    {
+      "SERVICES_ID": 66,
+      "DESCRIPTION": "Training"
+    },
+    {
+      "SERVICES_ID": 60,
+      "DESCRIPTION": "Violence Prevention"
+    },
+    {
+      "SERVICES_ID": 94,
+      "DESCRIPTION": "Youth Development"
+    }
+  ]

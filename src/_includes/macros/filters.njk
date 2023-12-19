@@ -24,15 +24,17 @@
 {% endfor %}
 {% endif %}
 
-{# POPULATION #}
-{% if filter_slug == 'population' %}
+{# SERVICES FIELDSETS: POPULATION, CLINICAL, SOCIAL #}
+{% if filter_slug == 'population' or filter_slug == 'clinical' or filter_slug == 'social' %}
 {% for item in filter_data %}
-    {% set slug = item.SERVICES_ID %}
+    {% set slug  = item.SERVICES_ID %}
     {% set label = item.DESCRIPTION %}
-    
+    {# we need to carefully construct the service id checkboxes #}
     {% set checkboxContent = (checkboxContent.push({
-        slug: slug,
-        label: label
+        id: 'services_id_' ~ slug,
+        label: label,
+        name: 'services_id',
+        slug: slug
     }), checkboxContent) %}
 {% endfor %}
 {% endif %}

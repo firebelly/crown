@@ -15,13 +15,16 @@ class searchFilters {
         this._savvy    = 'data-savvy-search';
         this._modal    = 'data-modal-search';
 
-        let studentSlugs =  Object.entries(studentObj).map(([idx, obj]) => obj.slug);
+        // No longer using
+        // let studentSlugs =  Object.entries(studentObj).map(([idx, obj]) => obj.slug);
+        // this.criteria = {
+        //     'students': studentSlugs
+        // }
 
-        this.criteria = {
-            'students': studentSlugs
-        }
+        this.programIdKey   = 'PROGRAM_ID';
+        this.programNameKey = 'PROGRAM_NAME';
         
-        this._active = '_is-active';
+        this._active   = '_is-active';
         this._inactive = '_is-inactive';
 
         this.bind();
@@ -41,8 +44,15 @@ class searchFilters {
 
         let self = this;
 
-        let formData = new FormData(form),
-            searchObj  = Object.fromEntries(formData);
+        let formData  = new FormData(form),
+            searchObj = Object.fromEntries(formData);
+        
+        // Ensure all services_id values are extracted
+        // 'fromEntries method will only pull the *last* 
+        if ( 'services_id[]' in searchObj ) {
+            let allIds = formData.getAll('services_id[]');
+            searchObj['services_id[]'] = allIds;
+        }
         
         return searchObj;
 
@@ -167,7 +177,7 @@ class searchFilters {
 
         let item = [];
 
-        const translator = Object.entries(translatorObj);
+        //const translator = Object.entries(translatorObj);
 
         let details = {};
 
@@ -176,66 +186,32 @@ class searchFilters {
             // If value irrelevant, skip.
             if ( typeof v === null || typeof v === 'string' && ( v.toLowerCase() === 'null' || v.trim() === '' ) || v === 0 ) continue;
             
-            let slug    = k.toLowerCase(),
-                variant = slug.replace(/_/g, '-');
+            if ( (Object.keys(details)).includes('id') && (Object.keys(details)).includes('name') ) continue;
 
-            let success  = self.loopThroughTranslator(translator,slug),
-                category = success.category,
-                label    = success.label;
+            // Only need to extract id and name for now
+            if ( k == self.programIdKey ) {
+                details['id'] = v;
+            }
+            if ( k == self.programNameKey ) {
+                details['name'] = v;
+            }        
+        }
+
+        let tmpl = `<article class="cardItem">
+                        <h2 class="cardItem-title">
+                            <a href="/detail/${details.id}" title="View details for ${details.name}">${details.name}</a>
+                        </h2>
+                        <a class="cardItem-action" href="/detail/${details.id}" title="View details for ${details.name}">
+                            <span class="cardItem-action-label">Read More</span>
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z" />
+                                </svg>
+                            </span>
+                        </a>
+                    </article>`;
             
-            let value = variant === 'program-status-date' ? self.convertDate(v) : v;
-
-            let item = '';
-
-            console.log(category);
-
-            let checkmarks = ['Students','Instruction','Prerequisites'],
-                colons     = ['Contact'];
-
-            // Massage the content
-            if ( checkmarks.includes(category) && value === 1) {
-                item = [`<div class="resultItem-detail resultItem-detail--${variant}">`,
-                            `<div class="resultItem-detail-dd">&#x2713 ${label}</div>`,
-                        `</div>`];
-            }
-            else if ( colons.includes(category) ) {
-                item = [`<div class="resultItem-detail resultItem-detail--${variant}">`,
-                            `<div class="resultItem-detail-dd">${label}: ${value}</div>`,
-                        `</div>`];
-            }
-            else {
-
-                item = [`<div class="resultItem-detail resultItem-detail--${variant}">`,
-                            `<h4 class="resultItem-detail-dt">${label}</h4>`,
-                            `<div class="resultItem-detail-dd">${value === 1 ? '&#x2713' : value}</div>`,
-                        `</div>`];
-            }
-
-            if ( !Object.keys(details).includes(category) ) {
-                details[category] = [];
-            }
-
-            details[category].push(item.join(''));
-    
-        }
-
-        let tmpl = [];
-
-        for ( const [category,list] of Object.entries(details) ) {
-
-            tmpl.push([
-                `<div class="resultItem-group resultItem-group--${category.toLowerCase()}">`,
-                    `<h3 class="resultItem-category">${category}</h3>`,
-                    `<div class="resultItem-list">`,
-                        `${list.join('')}`,
-                    `</div>`,
-                `</div>`].join(''));
-
-        }
-
-        tmpl = tmpl.join('');
-
-        return `<div class="resultItem">${tmpl}</div>`;
+        return tmpl;
 
     }
 
@@ -286,8 +262,7 @@ class searchFilters {
         
         const selector = form.classList[0];
 
-        // const arr = Object.entries(programObj).map(([idx, obj]) => obj.program_name);
-        const arr = Object.entries(programObj).map(([idx, obj]) => [ obj.program_id, obj.program_name ] );
+        const arr = Object.entries(programObj).map(([idx, obj]) => [ obj[self.programIdKey], obj[self.programNameKey] ] );
 
         const makeItSavvy = (e) => {
 
@@ -451,7 +426,7 @@ class searchFilters {
                 let activeTriggers = form.querySelectorAll(`[${self._modal}="trigger"]:checked`);
 
                 let criteriaItem = '';
-                
+
                 if ( activeTriggers.length === 0 && key === 'organizations' ) {
                     self.resetProgram();
                 }
@@ -514,7 +489,7 @@ class searchFilters {
 
         const searchResults = document.querySelector(`[${self._hook}="results"]`);
 
-        let searchObj  = self.getData(e.target);
+        let searchObj  = self.getData(e.target); // e.g. {program_id: '22'}
 
         const blackList = ['name_program_id','modal_program_id'];
 
@@ -525,22 +500,21 @@ class searchFilters {
             }
         }
 
-        let searchKeys = Object.keys(searchObj),
-            programArr = Object.entries(programObj);
-        
-        // console.log(programArr);
-        // console.log('search ', searchKeys);
+        let searchKeys = Object.keys(searchObj),     // e.g. ['program_id']
+            programArr = Object.entries(programObj); // e.g. [array containing all programs]
 
         let selectedPrograms = [];
 
         let searchAll = (searchKeys.includes('program_id') && searchObj['program_id'] === '' && searchKeys.length === 1),
             programId = searchKeys.includes('program_id') && !searchAll ? parseInt(searchObj['program_id']) : null;
 
+        // If programId exists this means we are searching on a specific program
         if ( programId ) {
 
             let meetsCriteria = false;
             
-            let program = programArr.filter(([idx, obj]) => obj['program_id'] === programId )[0][1];
+            // Return the program object
+            let program = programArr.filter(([idx, obj]) => obj[self.programIdKey] === programId )[0][1];
 
             for ( const [k,v] of Object.entries(searchObj) ) {
                 meetsCriteria = ( parseInt(program[k]) ===  1 || k === 'program_id');
@@ -558,8 +532,30 @@ class searchFilters {
                 let meetsCriteria = searchAll;
                 
                 if ( !searchAll ) {
+                    // Iterate the search criteria object 
                     for ( const [k,v] of Object.entries(searchObj) ) {
-                        meetsCriteria = ( parseInt(program[k]) ===  1);
+                        // Student search: true/false
+                        if ( k.startsWith('sta_') ) {
+                            let programKey = k.toUpperCase();
+                            meetsCriteria = ( parseInt(program[programKey]) ===  1);
+                        }
+                        // Service ID search
+                        if ( k.startsWith('services_id') ) {
+                            let serviceIds = program['SERVICEIDS'];
+                            
+                            if ( serviceIds != '' ) {
+                                // let idList = serviceIds.split(',');
+                                // // Iterate list of service ids from search
+                                // for ( const id of v ) {
+                                //     // If id is in the program service id list
+                                //     // Set our criteria flag to true
+                                //     if ( id in idList ) {
+                                //         meetsCriteria = true;
+                                //     }
+                                // }
+                            }
+                            
+                        }
                     }
                 }
 
@@ -575,12 +571,13 @@ class searchFilters {
 
             // Empty results before next search, display result count
             searchResults.innerHTML = `<h2 class="searchResults-count">Showing ${selectedPrograms.length} Result${ selectedPrograms.length > 1 ? 's' : ''}</h2>`;
+            searchResults.innerHTML += `<div class="searchResults-container"></div>`;
+            
+            let container = document.querySelector('.searchResults-container');
 
             selectedPrograms.forEach((obj,idx) => {
-
                 let tmpl = self.resultTmpl(obj);
-                searchResults.innerHTML += tmpl;
-            
+                container.innerHTML += tmpl;
             });
 
             searchResults.classList.remove(self._inactive);

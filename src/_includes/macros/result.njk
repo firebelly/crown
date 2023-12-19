@@ -1,6 +1,7 @@
-{%- macro item(org,view,translator) -%}
+{%- macro item(org,view,translator,populationList = null) -%}
 
 {# NOTE: JSON KEYS ARE UPPERCASE, CASE SENSITIVE #}
+{% set webStatus = org.WEBSTATUS %} {# 0 = not started, 1 = partially completed, 2 = completed #}
 {% set programId = org.PROGRAM_ID %}
 {# HEADER #}
 {% set name = org.PROGRAM_NAME %}
@@ -41,14 +42,17 @@
 {% if view == 'excerpt' %}
     <article class="cardItem">
         <h2 class="cardItem-title">
-            <a href="/detail/{{ programId }}" title="View details for {{ name }}">{{ name }}</a>
+            <a href="../../detail/{{ programId }}" title="View details for {{ name }}">{{ name }}</a>
         </h2>
         {% if mission != 'NULL' %}
         <div class="cardItem-content">
             {# {{ mission }} #}
         </div>
         {% endif %}
-        <a class="cardItem-action" href="/detail/{{ programId }}" title="View details for {{ name }}">
+        <a 
+            class="cardItem-action" 
+            href="../../detail/{{ programId }}" 
+            title="View details for {{ name }}">
             <span class="cardItem-action-label">Read More</span>
             <span class="cardItem-action-icon cardItem-action-icon--sm">
                 {% include 'src/assets/svgs/icon-dbl-chevron-right.svg' %}
@@ -59,11 +63,12 @@
 
 {% if view == 'detail' %}
 
-    <section class="detailContainer">
+    {# add variant if the wizard has not been fully completed by organization #}
+    <section class="detailContainer{% if webStatus == 0 or webStatus == 1 %} detailContainer--incomplete{% endif %}">
 
         <a 
             class="breadCrumbs"
-            href="../../"  
+            href="../../search/page-1"  
             title="View Results Page">
             <span class="breadCrumbs-icon breadCrumbs-icon--sm">
                 {% include 'src/assets/svgs/icon-dbl-chevron-left.svg' %}
@@ -128,8 +133,14 @@
                                         </li>
                                         {% endif %}
                                         {% if website and website != 'NULL' %}
+                                        {% set properLink = ('http://' in website or 'https://' in website) %}
                                         <li class="asideBlock-item asideBlock-item--alt">
-                                            <a class="asideBlock-item-action" href="{{ website }}" title="Visit {{ name }} site" target="_blank">
+                                            <a 
+                                                class="asideBlock-item-action" 
+                                                href="{% if properLink %}{{ website }}{% else %}https://{{ website }}{% endif %}" 
+                                                title="Visit {{ name }} site" 
+                                                target="_blank"
+                                                rel="external">
                                                 <span class="asideBock-item-label">Website</span>
                                                 <span class="asideBlock-item-icon asideBlock-item-icon--sm">
                                                     {% include 'src/assets/svgs/icon-external.svg' %}
@@ -141,6 +152,8 @@
 
                                 {% elseif category == 'Documents' and docList|length %}
                                     <ul class="asideBlock-list asideBlock-list--plain">
+                                        {% set hasInfo = false %}
+                                        {# UNCOMMENT WHEN UPLOADED DOCS ARE AVAILABLE
                                         {% for doc in docList %}
                                         <li class="asideBlock-item">
                                             <a class="asideBlock-item-action" href="{{ doc.src }}" download>
@@ -151,19 +164,28 @@
                                             </a>
                                         </li>
                                         {% endfor %}
+                                        #}
+                                        {% if not hasInfo %}
+                                        <li>N/A</li>
+                                        {% endif %}
                                     </ul>
 
                                 {% elseif category == 'Students Accepted' %}
                                     {% set options = studentOptions %}
                                     <ul class="asideBlock-list asideBlock-list--checks">
+                                    {% set hasInfo = false %}
                                     {% for key, val in options %}
                                         {% if org[key] == 1 %}
+                                        {% set hasInfo = true %}
                                         {% set label = val %}
                                         <li class="asideBlock-item">
                                             &#x2713 {{ label }}
                                         </li>
                                         {% endif %}
-                                        {% endfor %}
+                                    {% endfor %}
+                                        {% if not hasInfo %}
+                                        <li>N/A</li>
+                                        {% endif %}
                                     </ul>
                                 
                                 {% elseif category == 'Instruction' %}
@@ -233,42 +255,27 @@
                 <div class="textBlock">
                     <h2 class="textBlock-title">Services</h2>
                     <div class="textBlock-content">
-                        {% if services or services != 'NULL' or services|trim != '' %}
-                            {% set list = "22,33" %}
-                            {% set serviceList = list|makeList() %}
-                            {% for idx, val in serviceList %}
-                                {{ idx }}, {{ val }}
+                    {% set hasServices = (services and services != 'NULL' and services != '') %}
+                    {% if hasServices %}
+                        <ul class="asideBlock-list asideBlock-list--checks">
+                        {% set serviceList = services|makeList() %}
+                        {% set labelList = [] %}
+                        {% for val in serviceList %}
+                            {% for p in populationList %}
+                                {% if p.SERVICES_ID|int == val|int %}
+                                {% set labelList = (labelList.push([p.DESCRIPTION]), labelList) %}
+                                {% endif %}
                             {% endfor %}
-                        {% else %}
-                        
-                        {% endif %}
+                        {% endfor %}
+                        {% for label in labelList %}
+                        <li class="asideBlock-item">&#x2713 {{ label }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        N/A
+                    {% endif %}
                     </div>
                 </div>
-
-
-                {#
-                <div class="textBlock">
-                    <h2 class="textBlock-title">Initiatives</h2>
-                    <div class="textBlock-content">
-                        {% if initiatives == 'NULL' %}
-                        No information Available
-                        {% else %}
-                        {{ initiatives }}
-                        {% endif %}
-                    </div>
-                </div>
-
-                <div class="textBlock">
-                    <h2 class="textBlock-title">Details</h2>
-                    <div class="textBlock-content">
-                        {% if not supervision or supervision == 'NULL' %}
-                        <p>No supervision information available</p>
-                        {% else %}
-                        <p>{{ supervision }}</p>
-                        {% endif %}
-                    </div>
-                </div>
-                #}
 
                 {% if addl != 'NULL' %}
                 <div class="textBlock">
