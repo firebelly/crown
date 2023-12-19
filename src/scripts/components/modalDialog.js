@@ -7,8 +7,10 @@ class modalDialog {
     constructor(options) {
 
         this.options  = options || null;
-        this._id      = this.options._id !== 'undefined' && this.options._id !== null ? this.options._id : null; 
-        this._hash    = this.options._hash !== 'undefined' && this.options._hash !== null ? this.options._hash : null;
+        // this._id      = this.options._id !== 'undefined' && this.options._id !== null ? this.options._id : null; 
+        // this._hash    = this.options._hash !== 'undefined' && this.options._hash !== null ? this.options._hash : null;
+        
+        this._hook = this.options._hook !== 'undefined' && this.options._hook !== null ? this.options._hook : null; 
 
         this.bind();
 
@@ -73,21 +75,27 @@ class modalDialog {
 
         let self = this;
 
-        const dialogId        = self._id,
-              dialogHook      = `${dialogId}_dialog`,
-              dialogContainer = document.querySelector(`#${dialogHook}`);
-        
-        const hash = self._hash;
+        const modalEls = document.querySelectorAll(`[data-${self._hook}]`);
 
-        if ( dialogContainer ) {
-  
-            const dialogModal = new A11yDialog(dialogContainer);
+        modalEls.forEach((modal) => {
 
-            dialogModal
-                .on('show', () => (document.documentElement.style.overflowY = 'hidden'))
-                .on('hide', () => (document.documentElement.style.overflowY = ''))
+            const dialogId        = modal.dataset.modal,
+                  dialogHook      = `${dialogId}_dialog`,
+                  dialogContainer = document.querySelector(`#${dialogHook}`);
             
-        }
+            const hash = self._hash;
+
+            if ( dialogContainer ) {
+    
+                const dialogModal = new A11yDialog(dialogContainer);
+
+                dialogModal
+                    .on('show', () => (document.documentElement.style.overflowY = 'hidden'))
+                    .on('hide', () => (document.documentElement.style.overflowY = ''))
+                
+            }
+        
+        });
 
     }
 

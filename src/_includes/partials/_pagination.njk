@@ -1,0 +1,43 @@
+{# 
+    For comprehensive list of available pagination keys:
+    https://mvolkmann.github.io/blog/eleventy/pagination/?v=1.0.9
+#}
+
+<nav class="searchPagination">
+    {% set prefix  = 'search/page-' %}
+    {% set first   = pagination.href.first %}
+    {% set last    = pagination.href.last %}
+    {% set prev    = pagination.href.previous %}
+    {% set next    = pagination.href.next %}
+    {% set current = pagination.pageNumber + 1 %}
+
+    <ol class="searchPagination-list">
+        {% if prev %}
+        <li class="searchPagination-item searchPagination-item--prev">
+            <a class="searchPagination-pg" href="{{ prev }}">
+                {% include 'src/assets/svgs/icon-dbl-chevron-left.svg' %} <span>Prev</span> 
+            </a>
+        </li>
+        {% endif %}
+
+        {% for href in pagination.hrefs %}
+        {# {% if loop.index0 !== pagination.pageNumber %} #}
+        <li class="searchPagination-item" data="{{ current }}">
+            {% if loop.index == current %}
+            <span class="searchPagination-pg _is-current">{{ loop.index }}</span>
+            {% else %}
+            <a class="searchPagination-pg" href="{{ href }}">{{ loop.index }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+
+        {% if next %}
+        <li class="searchPagination-item searchPagination-item--next">
+            <a class="searchPagination-pg" href="{{ next }}">
+                <span>Next</span> {% include 'src/assets/svgs/icon-dbl-chevron-right.svg' %}
+            </a>
+        </li>
+        {% endif %}
+    <ol>
+
+</nav>

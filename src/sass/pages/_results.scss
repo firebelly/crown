@@ -52,6 +52,12 @@
 
 	&-fieldset {
 		font-size: 1rem;
+
+		&--container {
+			padding: 5em;
+			background: color.scale(getColor('greystone'), $alpha:-55%);
+		}
+		
 	}
 	
 	&-legend {
@@ -82,15 +88,18 @@
 	}
 
 	&-submit {
-        $bg: getColor('lake');
-		@include globalButton($bg);
+        $bg: getColor('brick');
+		$text: getColor('white');
+		@include globalButton($text,$bg);
 		align-items: center;
 		font-size: 1.2rem;
 
 		&--clear {
 			margin-left: 0.8em;
 			border-color: transparent;
+			background-color: transparent;
 			border-radius: 0;
+			color: getColor('white');
 			text-decoration: underline;
 			text-underline-offset: 6px;
 		}
@@ -99,7 +108,10 @@
 
 	&-criteria {
 		margin: 2em 0 3em 0;
+		padding: 5em;
 		font-size: 1rem;
+		background: getColor('brick');
+		color: getColor('white');
 
 		&-title {
 			@include getType('p1-std');
@@ -113,6 +125,10 @@
 				display: flex;
 			}
 			
+		}
+
+		&-list {
+			margin-bottom: 3em;
 		}
 
 		&-li {
@@ -171,14 +187,12 @@
 /* ---------------------------------------------------------------------
   Modal
 ------------------------------------------------------------------------ */
-@include modal('.programModal');
-@include modal('.studentModal');
-@include modal('.instructorModal');
+@include modal('.filterModal');
 @include radioList('.programList');
-@include radioList('.instructorList');
+@include radioList('.criteriaList');
 
 .programList,
-.instructorList {
+.criteriaList {
 	$gradient-height: 8em;
 
 	&-wrap {
@@ -218,22 +232,17 @@
 }
 
 .instructorModal {
-
 	&-content {
 		min-width: 500px;
 	}
 }
 
-.instructorList {
-
+.filterList {
+	max-height: 400px;
+    overflow-y: scroll;
+	
 	&-buttons {
-		@include globalButtonPair('.instructorList');
-	}
-}
-
-.studentList {
-	&-buttons {
-		@include globalButtonPair('.studentList');
+		@include globalButtonPair('.filterList');
 	}
 }
 
@@ -254,7 +263,8 @@
 
 	&-count {
 		@include getType('h2');
-		margin: 0 0 1em 0;
+		margin: 0 0 3em 0;
+		color: getColor('brick');
 	}
 
 	&-container {
@@ -277,10 +287,13 @@
     margin: 0 0 2em 0;
     padding: 0 0 4em 0;
 
+	&:nth-last-child(-n+3) {
+		border-bottom: none;
+	}
+
     &-title {
         @include getType('h3');
         margin-bottom: 1em;
-        font-weight: 400;
 
         a:link,
         a:visited,
@@ -318,5 +331,59 @@
         }
         
     }   
+
+}
+
+/* ---------------------------------------------------------------------
+  Pagination
+------------------------------------------------------------------------ */
+.searchPagination {
+	$pagination: &;
+	margin-top: 2em;
+	padding-top: 2em;
+	border-top: 1px solid getColor('greystone',10);
+
+	&-list {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+
+		> {
+			flex: 0 1 auto;
+		}
+	}
+
+	&-item {
+		margin: 0 0.5em;
+
+		&--next {
+			margin-left: 3em;
+		}
+
+		&--prev {
+			margin-right: 3em;
+		}
+	}
+
+	&-pg {
+		color: getColor('brick');
+		text-underline-offset: 0.3em;
+
+		&._is-current {
+			color: getColor('black');
+		}
+
+		#{$pagination}-item--next &, 
+		#{$pagination}-item--prev & {
+			display: flex;
+			align-items: center;
+		}
+		
+		svg {
+			fill: getColor('brick');
+		}
+
+	}
 
 }

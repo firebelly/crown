@@ -1,0 +1,30 @@
+[
+    {
+      "SERVICES_ID": 103,
+      "DESCRIPTION": "Alcohol & Other Drugs/Addictions Training Program"
+    },
+    {
+      "SERVICES_ID": 52,
+      "DESCRIPTION": "Case Management"
+    },
+    {
+      "SERVICES_ID": 55,
+      "DESCRIPTION": "Counseling"
+    },
+    {
+      "SERVICES_ID": 112,
+      "DESCRIPTION": "Kiphart"
+    },
+    {
+      "SERVICES_ID": 93,
+      "DESCRIPTION": "SSW PEL"
+    },
+    {
+      "SERVICES_ID": 96,
+      "DESCRIPTION": "Violence Prevention"
+    },
+    {
+      "SERVICES_ID": 24,
+      "DESCRIPTION": "Vocational (disabilities)"
+    }
+  ]
