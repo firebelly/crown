@@ -21,8 +21,9 @@ class searchFilters {
         //     'students': studentSlugs
         // }
 
-        this.programIdKey   = 'PROGRAM_ID';
-        this.programNameKey = 'PROGRAM_NAME';
+        this.programIdKey       = 'PROGRAM_ID';
+        this.programNameKey     = 'PROGRAM_NAME';
+        this.programServicesKey = 'SERVICEIDS';
         
         this._active   = '_is-active';
         this._inactive = '_is-inactive';
@@ -199,9 +200,9 @@ class searchFilters {
 
         let tmpl = `<article class="cardItem">
                         <h2 class="cardItem-title">
-                            <a href="/detail/${details.id}" title="View details for ${details.name}">${details.name}</a>
+                            <a href="../../detail/${details.id}" title="View details for ${details.name}">${details.name}</a>
                         </h2>
-                        <a class="cardItem-action" href="/detail/${details.id}" title="View details for ${details.name}">
+                        <a class="cardItem-action" href="../../detail/${details.id}" title="View details for ${details.name}">
                             <span class="cardItem-action-label">Read More</span>
                             <span class="cardItem-action-icon cardItem-action-icon--sm">
                                 <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
@@ -508,6 +509,7 @@ class searchFilters {
         let searchAll = (searchKeys.includes('program_id') && searchObj['program_id'] === '' && searchKeys.length === 1),
             programId = searchKeys.includes('program_id') && !searchAll ? parseInt(searchObj['program_id']) : null;
 
+        // Implement Exclusive Search!!!
         // If programId exists this means we are searching on a specific program
         if ( programId ) {
 
@@ -525,38 +527,64 @@ class searchFilters {
             }
 
         }
+        // Search all programs
         else {
 
             for ( const [idx,program] of programArr ) {
-
-                let meetsCriteria = searchAll;
                 
+                // Search all and *only* programs = true/false
+                let meetsCriteria = searchAll;
+
+                // If searching all programs *and* additional filters
+                //////////////////////////////////////////////////////
                 if ( !searchAll ) {
-                    // Iterate the search criteria object 
-                    for ( const [k,v] of Object.entries(searchObj) ) {
-                        // Student search: true/false
-                        if ( k.startsWith('sta_') ) {
-                            let programKey = k.toUpperCase();
-                            meetsCriteria = ( parseInt(program[programKey]) ===  1);
-                        }
-                        // Service ID search
-                        if ( k.startsWith('services_id') ) {
-                            let serviceIds = program['SERVICEIDS'];
-                            
-                            if ( serviceIds != '' ) {
-                                // let idList = serviceIds.split(',');
-                                // // Iterate list of service ids from search
-                                // for ( const id of v ) {
-                                //     // If id is in the program service id list
-                                //     // Set our criteria flag to true
-                                //     if ( id in idList ) {
-                                //         meetsCriteria = true;
-                                //     }
-                                // }
+
+                    let searchKeys = Object.keys(searchObj);
+
+                    // Determine if and how many student filters are applied
+                    let studentFilters = searchKeys.filter(k => { return k.startsWith('sta_') }),
+                        serviceFilters = searchKeys.filter(k => { return k.startsWith('services_id[]') }).length ? searchObj['services_id[]'] : null;
+
+                    let studentCount = 0,
+                        serviceCount = 0;
+                    
+                    let studentCriteria = false,
+                        serviceCriteria = false;
+
+                    // Student Slug Search
+                    if ( studentFilters ) {
+                        for ( let idx in studentFilters ) {
+                            let key = studentFilters[idx].toUpperCase();
+                            if ( program[key] ) {
+                                studentCount += 1;
                             }
-                            
+                        }
+                        studentCriteria = (studentFilters.length === studentCount );
+                    }
+                    // Service ID search
+                    if ( serviceFilters ) {
+                        // Cast service id string on program object to array
+                        let serviceString = program[self.programServicesKey],
+                            serviceArr    = ( serviceString && serviceString !== '' ) ? serviceString.split(',') : null;
+                        
+                        if ( serviceArr ) {
+                            for ( let idx in serviceFilters ) {
+                                if ( serviceArr.includes(serviceFilters[idx]) ) {
+                                    serviceCount += 1;
+                                }
+                            }
+                            serviceCriteria = (serviceFilters.length === serviceCount );
                         }
                     }
+
+                    // Qualifying criteria
+                    if ( ( studentFilters && serviceFilters ) && ( studentCriteria && serviceCriteria ) ) {
+                        meetsCriteria = true;
+                    }
+                    else if ( ( studentFilters && studentCriteria ) || ( serviceFilters && serviceCriteria ) ) {
+                        meetsCriteria = true;
+                    }
+
                 }
 
                 if ( meetsCriteria ) {

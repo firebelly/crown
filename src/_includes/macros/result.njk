@@ -240,14 +240,14 @@
             <div class="detailMain-col detailMain-col--primary">
 
                 <div class="textBlock">
-                    <h2 class="textBlock-title">Description</h2>
+                    <h2 class="textBlock-title">Mission</h2>
                     <div class="textBlock-content">
                         {% if mission or mission != 'NULL' %}
                         {% set parsedText = mission|replace('\\\\fs02\\org$\\','') %}
                         {# TO DO: if pdf add link #}
                         {{ parsedText }}
                         {% else %}
-                        No information Available
+                        N/A
                         {% endif %}
                     </div>
                 </div>
