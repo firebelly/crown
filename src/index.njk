@@ -7,7 +7,7 @@ pagination:
   alias: programs  
 
 permalink: "program/search/page-{{ pagination.pageNumber + 1 }}/index.html"
-data: dataTranslator, studentList, instructorList, populationList, clinicalList, socialList
+data: dataTranslator, studentList, instructorList, populationList, clinicalList, socialList, keywordList
 --- 
 {% import "./_includes/macros/result.njk" as result %}
 {% import './_includes/macros/filters.njk' as filter %}
@@ -31,7 +31,8 @@ data: dataTranslator, studentList, instructorList, populationList, clinicalList,
                 {'slug':'students','title': 'Students','hook':'student','data': studentList,'type':'checkbox'},
                 {'slug':'population','title':'Population','hook':'population','data': populationList, 'type': 'checkbox'},
                 {'slug':'clinical','title':'Clinical','hook':'clinical','data': clinicalList, 'type': 'checkbox'},
-                {'slug':'social','title':'Social','hook':'social','data': socialList, 'type': 'checkbox'} 
+                {'slug':'social','title':'Social','hook':'social','data': socialList, 'type': 'checkbox'},
+                {'slug':'keywords','title':'Keywords','hook':'keywords','data': keywordList, 'type': 'checkbox'} 
             ] %}
         
             {% for filter_obj in filter_types %}

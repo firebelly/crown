@@ -24,6 +24,24 @@
 {% endfor %}
 {% endif %}
 
+{# KEYWORD #}
+{% if filter_slug == 'keywords' %}
+{% for item in filter_data %}
+    {% if item.KEYWORD != '' %}
+    {% set val   = item.KEYWORD %}
+    {% set slug  = val|slug %}
+    {% set label = val|title  %}
+    {# we need to carefully construct the keyword checkboxes #}
+    {% set checkboxContent = (checkboxContent.push({
+        id: 'keywords_' ~ slug,
+        label: label,
+        name: 'keywords',
+        slug: slug
+    }), checkboxContent) %}
+    {% endif %}
+{% endfor %}
+{% endif %}
+
 {# SERVICES FIELDSETS: POPULATION, CLINICAL, SOCIAL #}
 {% if filter_slug == 'population' or filter_slug == 'clinical' or filter_slug == 'social' %}
 {% for item in filter_data %}

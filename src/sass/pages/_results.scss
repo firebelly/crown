@@ -41,6 +41,7 @@
 		&--secondary {
 			display: flex;
 			flex-flow: row wrap;
+			margin-bottom: 0;
 		}
 
 		@include breakpoint(lg) {
@@ -52,9 +53,10 @@
 
 	&-fieldset {
 		font-size: 1rem;
-
+		
 		&--container {
 			padding: 5em;
+			margin: 0 0 3em 0;
 			background: color.scale(getColor('greystone'), $alpha:-55%);
 		}
 		
