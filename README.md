@@ -77,14 +77,15 @@ Make special note of [`dataTranslator.json`](https://github.com/firebelly/crown/
 
 Students can filter programs directly by either typing the organization name into the [savvy search field](https://github.com/firebelly/crown/blob/main/src/_includes/fieldsets/organizations.njk#L2), or selecting the organization from a list with the [modal](https://github.com/firebelly/crown/blob/main/src/_includes/fieldsets/organizations.njk#L22). 
 
-Students can also filter their search by program property; there are currently [4 program properties](https://github.com/firebelly/crown/blob/main/src/_includes/macros/result.njk) by which to search:
+Students can also filter their search by program property; there are currently [5 program properties](https://github.com/firebelly/crown/blob/main/src/_includes/macros/result.njk) by which to search:
 
 1. Students
 2. Population
 3. Clinical
 4. Social
+5. Keyword
 
-More criteria can be added easily, as needed, by following the existing convention. These 4 criteria are [multi-select checkbox fields](https://github.com/firebelly/crown/blob/main/src/_includes/macros/filters.njk#L68), but [single checkbox/radio fields](https://github.com/firebelly/crown/blob/main/src/_includes/macros/filters.njk#L97) are also available.
+More criteria can be added easily, as needed, by following the existing convention. These 5 criteria are [multi-select checkbox fields](https://github.com/firebelly/crown/blob/main/src/_includes/macros/filters.njk#L68), but [single checkbox/radio fields](https://github.com/firebelly/crown/blob/main/src/_includes/macros/filters.njk#L97) are also available.
 
 
 
