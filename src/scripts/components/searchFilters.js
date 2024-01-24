@@ -24,6 +24,7 @@ class searchFilters {
         this.programIdKey       = 'PROGRAM_ID';
         this.programNameKey     = 'PROGRAM_NAME';
         this.programServicesKey = 'SERVICEIDS';
+        this.programKeywordKey  = 'KEYWORDS';   
         
         this._active   = '_is-active';
         this._inactive = '_is-inactive';
@@ -134,6 +135,8 @@ class searchFilters {
 
     }
 
+    // getResults
+    // old
     getResults(obj) {
 
         let self = this;
@@ -543,14 +546,20 @@ class searchFilters {
 
                     // Determine if and how many student filters are applied
                     let studentFilters = searchKeys.filter(k => { return k.startsWith('sta_') }),
-                        serviceFilters = searchKeys.filter(k => { return k.startsWith('services_id[]') }).length ? searchObj['services_id[]'] : null;
+                        serviceFilters = searchKeys.filter(k => { return k.startsWith('services_id[]') }).length ? searchObj['services_id[]'] : null,
+                        keywordFilters = searchKeys.filter(k => { return k.startsWith('keywords[]') }).length ? searchObj['keywords[]'] : null;
 
                     let studentCount = 0,
-                        serviceCount = 0;
+                        serviceCount = 0,
+                        keywordCount = 0;
                     
                     let studentCriteria = false,
-                        serviceCriteria = false;
+                        serviceCriteria = false,
+                        keywordCriteria = false;
 
+                    console.log(searchKeys);
+                    console.log(keywordFilters);
+    
                     // Student Slug Search
                     if ( studentFilters ) {
                         for ( let idx in studentFilters ) {
@@ -561,6 +570,23 @@ class searchFilters {
                         }
                         studentCriteria = (studentFilters.length === studentCount );
                     }
+                    // Keyword Search
+                    if ( keywordFilters ) {
+                        
+                        let keywordString = program[self.programServicesKey],
+                            keywordArr   = ( keywordString && keywordString !== '' ) ? keywordString.split(',') : null;
+                        
+                        if ( keywordArr ) {
+                            for ( let idx in keywordFilters ) {
+                                if ( keywordArr.includes(keywordFilters[idx]) ) {
+                                    keywordCount += 1;
+                                }
+                            }
+                            keywordCriteria = ( keywordFilters.length === keywordCount );
+                        }
+                        
+                    }
+
                     // Service ID search
                     if ( serviceFilters ) {
                         // Cast service id string on program object to array
@@ -578,10 +604,10 @@ class searchFilters {
                     }
 
                     // Qualifying criteria
-                    if ( ( studentFilters && serviceFilters ) && ( studentCriteria && serviceCriteria ) ) {
+                    if ( ( studentFilters && serviceFilters && keywordFilters ) && ( studentCriteria && serviceCriteria && keywordCriteria ) ) {
                         meetsCriteria = true;
                     }
-                    else if ( ( studentFilters && studentCriteria ) || ( serviceFilters && serviceCriteria ) ) {
+                    else if ( ( studentFilters && studentCriteria ) || ( serviceFilters && serviceCriteria ) || ( keywordFilters && keywordCriteria ) ) {
                         meetsCriteria = true;
                     }
 
