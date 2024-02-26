@@ -77,16 +77,18 @@
         </a>
 
         <div class="detailHeader">
-        
-            <picture class="detailHeader-logo">
-                {% if logo %}
-                <img class="detailHeader-logo-asset" src="{{ logo }}" height="100" width="100" alt="{{ name }} Logo" />
-                {% else %}
-                <img class="detailHeader-logo-asset" src="https://placehold.co/100x100" height="100" width="100" alt="Placeholder Logo" />
-                {% endif %}
-            </picture>
+            <!-- Header primary -->
+            <div class="detailHeader__primary">
+                <picture class="detailHeader-logo">
+                    {% if logo %}
+                    <img class="detailHeader-logo-asset" src="{{ logo }}" height="100" width="100" alt="{{ name }} Logo" />
+                    {% else %}
+                    <img class="detailHeader-logo-asset" src="https://placehold.co/100x100" height="100" width="100" alt="Placeholder Logo" />
+                    {% endif %}
+                </picture>
             
-            <h1 class="detailHeader-title">{{ name }}</h1>
+                <h1 class="detailHeader-title">{{ name }}</h1>
+            </div>
         </div>
         
         {# DETAIL CONTAINER #}

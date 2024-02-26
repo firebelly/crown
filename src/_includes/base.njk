@@ -10,31 +10,23 @@
 
     </head>
 
-    <body class="body">
-        <a class="skip-link" href="#main">
-            Skip to content
-        </a>    
-    
+    <body class="body">    
         <header id="header" class="primaryHeader">
-            <h1 class="primaryHeader-logo">
-                {% include 'src/assets/svgs/UChicago_CFS_Logo_White.svg' %}
-            </h1>
+            <div class="primaryHeader__inner">
+                <h1 class="primaryHeader-logo">
+                    {% include 'src/assets/svgs/UChicago_CFS_Logo_White.svg' %}
+                </h1>
 
-            <h2 class="primaryHeader-title">
-                The Field Work Database
-            </h2>
-
+                <h2 class="primaryHeader-title">
+                    The Field Work Database
+                </h2>
+            </div>
         </header>
 
         <main id="main" class="primaryContent" tabindex="-1">     
             {{ content | safe }}
         </main>
 
-        <footer id="footer" class="primaryFooter">
-        </footer>
-
-        <div id="viewport" class="viewport _is-debug"></div>
         <script src="/scripts/main.js"></script>
-
     </body>
 </html>

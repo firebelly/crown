@@ -13,8 +13,6 @@
 @include savvySearch('.programSearch');
 
 .searchForm {
-	margin: 5em auto; // tmp
-
 	&-rule {
 		border: 0;
 		border-top: 1px dashed $color-primary;
@@ -253,7 +251,7 @@
   Result Container
 ------------------------------------------------------------------------ */
 .searchResults {
-	margin: 5em 0 10em 0;
+	padding: 2em 0 5em 0;
 	opacity: 1;
 	transition: $fade-transition, $slide-transition;
 	transform: translateY(0);
@@ -263,21 +261,48 @@
 		transform: translateY(50px);
 	}
 
-	&-count {
+	&-header {
+		padding: 3.5em 0 4em 0;
+	}
+
+	&-heading {
 		@include getType('h2');
-		margin: 0 0 3em 0;
 		color: getColor('brick');
 	}
 
-	&-container {
-		
-		@include breakpoint(lg) {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2em;
+	&-supporting-text {
+		margin-block-start: 2em;
+		max-width: 45em;
+		@include getType('p1-detail');
+		font-size: 15px;
+		line-height: 1.5;
+
+		p + p {
+			margin-block-start: 1.25em;
+		}
+
+		a {
+			@include actionAnchor();
 		}
 	}
 
+	&-container {
+		@include breakpoint(md) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 32px;
+		}
+
+		&[data-columns="2"] {
+
+		}
+
+		&:not([data-columns="2"]) {
+			@include breakpoint(lg) {
+				grid-template-columns: 1fr 1fr 1fr;
+			}	
+		}
+	}
 }
 
 /* ---------------------------------------------------------------------
@@ -285,13 +310,26 @@
 ---------------------------------------------------------------------- */
 .cardItem {
     font-size: 1rem;
-    border-bottom: 1px solid getColor('greystone',10);
     margin: 0 0 2em 0;
     padding: 0 0 4em 0;
+    border-bottom: 1px solid getColor('greystone',10);
 
-	&:nth-last-child(-n+3) {
-		border-bottom: none;
-	}
+		&:last-child {
+			border-bottom: none;
+		}
+
+		@include breakpoint(md) {
+			&:nth-child(odd):nth-last-child(2) {
+				border-bottom: none;
+			}
+		}
+
+		@include breakpoint(lg) {
+			&:nth-child(odd):nth-last-child(3),
+			&:nth-child(even):nth-last-child(2) {
+				border-bottom: none;
+			}
+		}
 
     &-title {
         @include getType('h3');
@@ -312,28 +350,25 @@
     }
 
     &-action {
-        vertical-align: middle;
-        @include actionAnchor();
-        @include getType('p1-std');
+      vertical-align: middle;
+      @include actionAnchor();
+      @include getType('p1-std');
 
-        &:hover {
-            @include actionHover();
+      &:hover {
+        @include actionHover();
+      }
+
+      &-icon {
+        display: inline-flex;
+
+        &--sm {
+        	svg {
+          	height: 12px;
+            width: 12px;
+          }        
         }
-
-        &-icon {
-            display: inline-flex;
-
-            &--sm {
-                svg {
-                    height: 12px;
-                    width: 12px;
-                }
-                
-            }
-        }
-        
-    }   
-
+      }  
+    }
 }
 
 /* ---------------------------------------------------------------------

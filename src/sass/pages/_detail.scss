@@ -43,31 +43,48 @@
 }
 
 .detailHeader {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
     padding: 4em 0;
     opacity: 0.01;
     animation: 1s 0s fadeInUp forwards;
 
-    > * {
-        flex: 0 1 auto;
+    .detailHeader__primary {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        > * {
+            flex: 0 1 auto;
+        }
+        
+        .detailHeader-title {
+            @include getType('h2');
+        }
+        
+        .detailHeader-logo {
+            margin: 0 2em 0 0;
+            flex-basis: 100px;
+            
+            img {
+                max-width: none;
+            }
+        }
     }
 
-    &-title {
-        @include getType('h2');
-    }
+    .detailHeader__secondary {
+        margin-block-start: 2em;
+        max-width: 45em;
+        @include getType('p1-detail');
+        font-size: 15px;
+		line-height: 1.5;
 
-    &-logo {
-        margin: 0 2em 0 0;
-        flex-basis: 100px;
-
-        img {
-            max-width: none;
+        p + p {
+            margin-block-start: 1.25em;
         }
 
+        a {
+            @include actionAnchor();
+        }
     }
-
 }
 
 .detailMain {
@@ -76,8 +93,14 @@
     animation: 1s 1s fadeInUp forwards;
 
     @include breakpoint(lg) {
-        display: flex;
-        flex-flow: row nowrap;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 96px;
+
+        .detailContainer--incomplete & {
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+        }
     }
 
     &-col {
@@ -90,14 +113,7 @@
             padding: 4em 0 0 0;
 
             @include breakpoint(lg) {
-                flex-basis: 60%;
-                padding: 0 0 0 2em;
-
-                .detailContainer--incomplete & {
-                    flex-basis: 30%;  
-                    padding-left: 0; 
-                }
-
+                padding: 0;
             }
         }
 
@@ -106,19 +122,25 @@
             padding: 0 0 2em 0;
 
             @include breakpoint(lg) {
-                flex-basis: 40%;
+                padding: 0;
+                position: relative;
                 border-bottom: 0;
-                border-right: 1px solid getColor('greystone');
-                padding: 0 2em 0 0;
+
+                &::after {
+                    content: '';
+                    inset: 0 -48px 0 auto;
+                    width: 1px;
+                    position: absolute;
+                    background-color: getColor('greystone');
+                }
 
                 .detailContainer--incomplete & {
-                    flex-basis: 70%;   
-                    border-right: none;
-                    padding-right: 0;
+                    &::after {
+                        display: none;
+                    }
                 }
             }
         }
-
 
     }
 
@@ -128,9 +150,11 @@
 .asideContent {
 
     &-inner {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
+        @include breakpoint(sm) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
 
         @include breakpoint(lg) {
             display: block;
@@ -140,20 +164,12 @@
             }
 
             .detailContainer--incomplete & {
-                display: flex;
-
-                > * {
-                    flex: 0 1 50%;
-                }  
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
             }
         }
-
-        > * {
-            flex: 0 1 50%;
-        }
-
     }
-
 }
 
 /* ---------------------------------------------------------------------

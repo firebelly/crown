@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Crown Family School</title>
+        <link rel="stylesheet" href="assets/css/styles.css" />
+    </head>
+  
+    <body class="body">
+        <!-- Site header -->
+        <header id="header" class="primaryHeader">
+            <div class="primaryHeader__inner">
+                <!-- Logo -->
+                <h1 class="primaryHeader-logo">
+                    <img src="assets/images/crown-logo.svg">
+                </h1>
+                
+                <!-- Site title -->
+                <h2 class="primaryHeader-title">
+                    The Field Work Database
+                </h2>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main id="main" class="primaryContent" tabindex="-1">
+            <!-- Search results -->
+            <div id="searchResults" class="searchResults">
+                <!-- Back to index -->
+                <a class="breadCrumbs" href="">
+                    <span class="breadCrumbs-icon breadCrumbs-icon--sm">
+                        <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0957 7.02549L15.2725 6.84872C15.5654 6.55582 15.5654 6.08095 15.2725 5.78806C14.9796 5.49516 14.5048 5.49516 14.2119 5.78806L10.4995 9.50037L10.4996 9.50043L10.4995 9.50043L9.49942 10.5005L10.4994 11.5004L10.4993 11.5005L14.2116 15.2128C14.5045 15.5057 14.9794 15.5057 15.2723 15.2128C15.5652 14.9199 15.5652 14.445 15.2723 14.1521L15.0955 13.9754C14.8492 13.7291 14.6029 13.5685 14.2819 13.3593C13.7187 12.9924 12.9257 12.4756 11.4994 11.0829L11.4993 10.5005L11.4994 9.91815C12.9258 8.52536 13.7189 8.00852 14.2821 7.64151C14.6031 7.43231 14.8494 7.2718 15.0957 7.02549ZM10.2726 6.84869L10.0958 7.02547C9.84947 7.27178 9.60316 7.43229 9.28213 7.64149C8.71896 8.00849 7.92584 8.52534 6.49938 9.91816L6.4993 10.5003L6.49938 11.0828C7.92569 12.4754 8.71876 12.9922 9.28191 13.3592C9.60293 13.5684 9.84924 13.7289 10.0955 13.9752L10.2723 14.152C10.5652 14.4449 10.5652 14.9198 10.2723 15.2127C9.97943 15.5056 9.50456 15.5056 9.21166 15.2127L5.49935 11.5003L5.49944 11.5003L5.49936 11.5003L4.49943 10.5003L5.49949 9.50026L5.49966 9.50026L9.21189 5.78803C9.50479 5.49514 9.97966 5.49514 10.2726 5.78803C10.5654 6.08092 10.5654 6.5558 10.2726 6.84869Z"></path>
+                        </svg>
+                    </span>
+                    <span class="breadCrumbs-label">Back to Fieldwork Search</span>
+                </a>
+
+                <!-- Header -->
+                <div class="searchResults-header">
+                    <h2 class="searchResults-heading">Search results heading</h2>
+                    <div class="searchResults-supporting-text">
+                        <p>Optional supporting text. Lorem ipsum dolor sit amet, <a href="">consectetur</a> adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                    </div>
+                </div>
+            
+
+                <!-- Results with data attribute for 2 column layout -->
+                <div class="searchResults-container" data-columns="2">
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+                    
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                        </div>
+                    
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</p>
+                        </div>
+
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+                    
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed.</p>
+                        </div>
+                    
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+                    
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                        </div>
+                    
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</p>
+                        </div>
+
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+                    
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                        </div>
+                    
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+                    
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                        </div>
+                    
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                        </div>
+
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+                    
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                        </div>
+                    
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+
+                    <!-- Result -->
+                    <article class="cardItem">
+                        <!-- Result title -->
+                        <h2 class="cardItem-title">
+                            <a href="" title="View details for Organization Name">Organization Name</a>
+                        </h2>
+                    
+                        <!-- Result supporting text -->
+                        <div class="cardItem-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi sed sollicitudin pellentesque. Consectetur adipiscing elit sit amet.</p>
+                        </div>
+                    
+                        <!-- Results action -->
+                        <a class="cardItem-action" href="" title="View details for Organization Name">
+                            <!-- Action text -->
+                            <span class="cardItem-action-label">Read More</span>
+                            <!-- Action icon -->
+                            <span class="cardItem-action-icon cardItem-action-icon--sm">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </article>
+                </div>
+            
+                
+                <!-- Pagination -->
+                <nav class="searchPagination">
+                    <ol class="searchPagination-list">
+                        <!-- Pagination previous -->
+                        <li class="searchPagination-item searchPagination-item--prev">
+                            <a class="searchPagination-pg" href="">
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0957 7.02549L15.2725 6.84872C15.5654 6.55582 15.5654 6.08095 15.2725 5.78806C14.9796 5.49516 14.5048 5.49516 14.2119 5.78806L10.4995 9.50037L10.4996 9.50043L10.4995 9.50043L9.49942 10.5005L10.4994 11.5004L10.4993 11.5005L14.2116 15.2128C14.5045 15.5057 14.9794 15.5057 15.2723 15.2128C15.5652 14.9199 15.5652 14.445 15.2723 14.1521L15.0955 13.9754C14.8492 13.7291 14.6029 13.5685 14.2819 13.3593C13.7187 12.9924 12.9257 12.4756 11.4994 11.0829L11.4993 10.5005L11.4994 9.91815C12.9258 8.52536 13.7189 8.00852 14.2821 7.64151C14.6031 7.43231 14.8494 7.2718 15.0957 7.02549ZM10.2726 6.84869L10.0958 7.02547C9.84947 7.27178 9.60316 7.43229 9.28213 7.64149C8.71896 8.00849 7.92584 8.52534 6.49938 9.91816L6.4993 10.5003L6.49938 11.0828C7.92569 12.4754 8.71876 12.9922 9.28191 13.3592C9.60293 13.5684 9.84924 13.7289 10.0955 13.9752L10.2723 14.152C10.5652 14.4449 10.5652 14.9198 10.2723 15.2127C9.97943 15.5056 9.50456 15.5056 9.21166 15.2127L5.49935 11.5003L5.49944 11.5003L5.49936 11.5003L4.49943 10.5003L5.49949 9.50026L5.49966 9.50026L9.21189 5.78803C9.50479 5.49514 9.97966 5.49514 10.2726 5.78803C10.5654 6.08092 10.5654 6.5558 10.2726 6.84869Z"></path>
+                                </svg>
+                                <span>Prev</span> 
+                            </a>
+                        </li>
+
+                        <!-- Pagination page -->
+                        <li class="searchPagination-item">
+                            <span class="searchPagination-pg" href="">1</span>
+                        </li>
+
+                        <!-- Pagination page -->
+                        <li class="searchPagination-item">
+                            <a class="searchPagination-pg" href="">2</a>
+                        </li>
+
+                        <!--
+                            Pagination current page:
+                            "_is-current" class and no link
+                        -->
+                        <li class="searchPagination-item">
+                            <a class="searchPagination-pg _is-current">3</a>
+                        </li>
+
+                        <!-- Pagination page -->
+                        <li class="searchPagination-item">
+                            <a class="searchPagination-pg" href="">4</a>
+                        </li>
+
+                        <!-- Pagination page -->
+                        <li class="searchPagination-item">
+                            <a class="searchPagination-pg" href="">5</a>
+                        </li>
+                    
+                        <!-- Pagination next -->
+                        <li class="searchPagination-item searchPagination-item--next">
+                            <a class="searchPagination-pg" href="/program/search/page-2/">
+                                <span>Next</span>
+                                <svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.89645 13.9745L5.71967 14.1513C5.42678 14.4442 5.42678 14.9191 5.71967 15.2119C6.01256 15.5048 6.48744 15.5048 6.78033 15.2119L10.4926 11.4996L10.4926 11.4996L10.4927 11.4996L11.4928 10.4995L10.4928 9.49957L10.4929 9.49951L6.78057 5.7872C6.48768 5.49431 6.01281 5.49431 5.71991 5.7872C5.42702 6.08009 5.42702 6.55497 5.71991 6.84786L5.89669 7.02464C6.143 7.27095 6.38931 7.43146 6.71033 7.64066C7.27346 8.00763 8.06649 8.52442 9.49271 9.91696L9.49264 10.4995L9.49271 11.0819C8.06633 12.4747 7.27325 12.9915 6.71009 13.3585C6.38906 13.5677 6.14276 13.7282 5.89645 13.9745ZM10.7196 14.1513L10.8964 13.9745C11.1427 13.7282 11.389 13.5677 11.7101 13.3585C12.2732 12.9915 13.0663 12.4747 14.4927 11.0819L14.4926 10.4997L14.4927 9.91715C13.0665 8.52457 12.2734 8.00777 11.7103 7.6408C11.3893 7.4316 11.143 7.27109 10.8966 7.02478L10.7199 6.848C10.427 6.55511 10.427 6.08023 10.7199 5.78734C11.0128 5.49445 11.4876 5.49445 11.7805 5.78734L15.4928 9.49965L15.4927 9.49974L15.4928 9.49974L16.4928 10.4997L15.4927 11.4997L15.4925 11.4997L11.7803 15.212C11.4874 15.5049 11.0125 15.5049 10.7196 15.212C10.4267 14.9191 10.4267 14.4442 10.7196 14.1513Z"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </main>
+    </body>
+</html>

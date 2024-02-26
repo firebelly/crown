@@ -250,11 +250,8 @@ $slide-transition: transform .5s;
 		#{$selector}-action {
 			@include globalButton();
 
-			&:nth-of-type(1) {
-				margin-right: 1em;
-			}
-
 			&--alt {
+				margin-inline-end: 1em;
 				border: none;
 				border-radius: 0;
 				text-decoration: underline;

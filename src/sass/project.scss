@@ -38,10 +38,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-overflow-scrolling: touch;	
 
-	@include breakpoint(md) {
-		font-size: 200%;
-	}
-
 	@include breakpoint(lg) {
 		font-size: 150%;
 	}
@@ -101,47 +97,22 @@ img {
 }
 
 /* ---------------------------------------------------------------------
-  Accessibility Skip
------------------------------------------------------------------------- */
-.skip-link {
-	border: 1px solid getColor('black');
-	border-top: none;
-	display: block;
-	left: 50%;
-	padding: 10px;
-	position: absolute;
-	z-index: 100;
-	transform: translateY(-100%);
-	transition: transform 0.3s;
-	background: getColor('white');
-	color: getColor('black');
-	font-weight: 700;
-
-	@include breakpoint(sm) {
-		font: normal 1.8em/133% $font-secondary;
-	}
-}
-  
-.skip-link:focus {
-	transform: translateY(0%);
-}
-
-.skip-link:focus-within {
-	transform: translateY(0%);
-}
-
-/* ---------------------------------------------------------------------
   Shell	
 ------------------------------------------------------------------------ */
 .primaryHeader {
-	display: flex;
 	padding: 2em 0;
 	background: getColor('brick');
-	align-items: center;
-	justify-content: center;
 
-	> * {
-		flex: 0 1 50%;
+	.primaryHeader__inner {
+  	margin: 0 auto;
+		max-width: 1300px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		> * {
+			flex: 0 1 50%;
+		}
 	}
 	
 	&-logo {
@@ -162,6 +133,7 @@ img {
 	padding: 2em;
 
 	@include breakpoint(lg) {
+		width: 100%;
 		margin: 0 auto;
 		max-width: 1050px;
 	}
